@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"de4c23a1baa26b74","type":"text","text":"**Merchant Gets**","x":-460,"y":-180,"width":250,"height":60,"color":"2"},
+		{"id":"66be5d7366fbfe9f","type":"text","text":"**Bank Gets**","x":220,"y":-180,"width":250,"height":60,"color":"4"},
+		{"id":"bfdf7b246cb54078","type":"text","text":"**Regular EMI:**\nMRP = 30,000\n+Interest (10%) = 33,000\nTotal Amount Received = 30,000\n\n**Low Cost EMI:**\nMRP: 30,000\n+Interest (10%) = 33,000\nDiscount Offered (5%) = 1,500\nTotal Amount Received = 28,500\n\n**No Cost EMI:**\nMRP = 30,000\nDiscount Offered = 3,000\nTotal Amount Received = 27,000","x":-460,"y":-64,"width":250,"height":504},
+		{"id":"41a942029b87d3f3","type":"text","text":"**Customer Pays**","x":-120,"y":-180,"width":250,"height":60,"color":"3"},
+		{"id":"2591177055c51fcc","x":-119,"y":-69,"width":250,"height":509,"type":"text","text":"**Regular EMI:**\nPaid to Merchant = 30,000\nPaid to Bank = 3,000\nTotal Paid = 33,000\n\n**Low Cost EMI**\nPaid to Merchant = 28,500\nPaid to Bank = 3,000\nTotal Paid = 31,500\n\n**No Cost EMI:**\nPaid to Merchant = 27,000\nPaid to Bank = 3,000\nTotal Paid = 30,000\n"},
+		{"id":"6e0b09c901929d99","x":222,"y":-70,"width":250,"height":510,"type":"text","text":"**Regular EMI:**\nEarned from Customer: 3,000\n\n**Low Cost EMI:**\nEarned from Customer: 3,000\n\n**No Cost EMI:**\nEarned from Customer: 3,000"}
+	],
+	"edges":[
+		{"id":"28ba214c51419677","fromNode":"de4c23a1baa26b74","fromSide":"bottom","toNode":"bfdf7b246cb54078","toSide":"top"},
+		{"id":"c6bded7dd7ed2296","fromNode":"41a942029b87d3f3","fromSide":"bottom","toNode":"2591177055c51fcc","toSide":"top"},
+		{"id":"fe9af7c25de531bf","fromNode":"66be5d7366fbfe9f","fromSide":"bottom","toNode":"6e0b09c901929d99","toSide":"top"}
+	]
+}
