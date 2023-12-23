@@ -9,4 +9,4 @@ Loitering
 	7. onboard high-resolution camera
 	8. absence of GPS support via visual guidance system
 	9. escape radar identification
-2. 
+2. Adding one more point for testing
