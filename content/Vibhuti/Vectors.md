@@ -9,7 +9,7 @@ $r(t) = x(t)\hat i + y(t)\hat j + z(t) \hat k$
 
 $\hat i , \hat j, \hat k$ are called unit vectors, that is it defines 1 unit distance in each directions. The term 'vector' here signifies that a quantity is directional in nature. Compared 'scaler' in a non-directional nature of a quantity.
 
-To find the distance of the object from origin, we need to apply [[pythagorus theorem]] to each individual planar region, on computation we get a following formula for distance in a 3D space:
+To find the distance of the object from origin, we need to apply [[pythagoras theorem]] to each individual planar region, on computation we get a following formula for distance in a 3D space:
 
 $|r| = \sqrt{x^2 + y^2 + z^2}$
 
