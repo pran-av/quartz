@@ -1,7 +1,7 @@
 #vectors #mathematics
 
 If an object is travelling in a three dimensional space, wherein the directions are defined as x, y, and z axis.
-#### Position Vector
+### Position Vector
 
 Then the position of the object relative to the origin at any given time $t$ is,
 
