@@ -1,3 +1,7 @@
+---
+date: 2023-12-25
+---
+
 1. **What is the meaning of marriage?** In older times it might have meant survival, in recent times it might just mean a companion in the journey of life. How important is this companionship in modern times? One thing for sure, its perhaps easy to get lonely and lost within the human society with just a few days of social detachment. We can wonder if that could be just a few hours in future - a few hours of social detachment can make someone depressed and lonely. #marriage
 	1. Though I have observed, when a human is occupied in karma, they get some degree of immunity from loneliness.
 	2. If an individual who wants to live forever without a marriage, should have this social and karma aspects figured out.

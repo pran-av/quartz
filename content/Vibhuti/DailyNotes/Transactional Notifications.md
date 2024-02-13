@@ -1,3 +1,7 @@
+---
+date: 2024-02-13
+---
+
 #### Transactional Notifications
 #product 
 1. Subject line that communicates the entire context as much as possible

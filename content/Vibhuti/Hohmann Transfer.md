@@ -1,3 +1,8 @@
+---
+date: 2023-12-25
+---
+
+
 #orbital_mechanics #physics
 
 A two burn mechanism to raise the orbit or lower the orbit of a vehicle within gravitational influence. The orbits in reference here are circular orbits. Following phases are involved:

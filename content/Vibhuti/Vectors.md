@@ -1,4 +1,9 @@
-#vectors #mathematics
+---
+date: 2023-12-26
+tags:
+  - vectors
+  - mathematics
+---
 
 If an object is travelling in a three dimensional space, wherein the directions are defined as x, y, and z axis.
 ### Position Vector

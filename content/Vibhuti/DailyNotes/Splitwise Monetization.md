@@ -1,3 +1,7 @@
+---
+date: 2024-01-04
+---
+
 #### Splitwise's monetisation attempt
 #product 
 
