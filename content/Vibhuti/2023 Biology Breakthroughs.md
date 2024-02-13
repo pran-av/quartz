@@ -1,3 +1,8 @@
+---
+date: 2024-01-26
+---
+
+
 1. **What is the difference between reality and imagination?** 
 	1. From my current understanding of the world, I believe anything that most people believe turns out to be real - that means a thing does not have to be physical or perceived through physical senses and still it can be real. A good and universal example is the concept of money and the mechanism of currencies. #reality #imagination
 	3. It is magnificent how brain manages to process feedback from all the senses mixed with the brain's self generated content and manage to classify what's real and what's imagined.
