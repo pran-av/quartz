@@ -9,6 +9,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
+    locale: "en-US",
     baseUrl: "garden.pranavmandhare.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
@@ -42,6 +43,7 @@ const config: QuartzConfig = {
         },
       },
     },
+    
   },
   plugins: {
     transformers: [
