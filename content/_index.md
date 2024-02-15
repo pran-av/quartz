@@ -11,6 +11,7 @@ This website is meant to generate a similar curiosity while strolling the digita
 Here are some resources to start with:
 1. All topic level explorations can be found under [Vibhuti](Vibhuti/). Vibhuti in this case means Wealth of Knowledge.
 2. A journal type column [Daily Notes](Vibhuti/DailyNotes/) will take you through some specific days, they may include further brainstormings on topics discussed under Vibhuti.
+3. [Projects](Vibhuti/Projects/) will take you through all the wilderness of ideas I have been through or currently traversing
 
 The Garden contains a lot of resources, not all are worth publishing. What gets published, are generally things that I presume worth sharing. Refrences to the garden are always prvided in the published essays, interested readers can be guided to Vibhuti where they can spend time exploring in depth. Like every garden has an entry and exit point and paths within itself, we need a pathway for a digital garden as well, and that is achieved by an email newsletter I have linked below. I recommend subscribing so that you don't miss new happenings in the garden:
 

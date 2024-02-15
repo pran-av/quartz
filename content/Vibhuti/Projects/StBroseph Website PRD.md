@@ -66,6 +66,10 @@ Language selector should have all major Indian language translations.
 	1. Explain user Why Download Now? Three points giving the reason.
 	2. Allow to connect on whatsapp for immediate issues
 	3. Back to Top button
+8. UI Ideas: 
+	1. Can Freedom Wall images be used across the website or atleast within the Landing page to inspire or subconsciously set a helping tone?
+	2. What else can be done to communicate to the user that "your problem will be solved!"?
+	3. Colors should be in-line with the logo design, but may be a lighter and mellow shades within the pallet - maybe communicate warmth?
 
 ### Footer
 1. Website Privacy Policy and Copyright
@@ -73,3 +77,66 @@ Language selector should have all major Indian language translations.
 3. Socials - IG, Reddit, Twitter, Email
 
 ### About StBroseph
+Goal of this page: Inspire users to Contribute via Volunteering (Primary) or Donations (Secondary)
+
+Following is divided into 4 sections, each section has a CTA. Sections should be small enough for a user to start and end reading through it.
+
+Section 1:
+1. What is our mission?
+2. Why India needs StBroseph?
+3. CTA: Would like to contribute? Get Involved CTA
+
+Section 2:
+1. History: Timeline, with major milestones and publications (this can start with About Dushyant)
+2. About StBroseph Army
+3. CTA: Want to be part of the story? Get Involved CTA
+
+Section 3: 
+1. About StBroseph Foundation
+2. NGO Certification
+3. CTA: Contribute via Donations? Scan QR code
+
+### Get Involved
+Goal of this page: Friction less way to communicate steps to take user from CTA click to Action Completion
+
+The page should be divided into three sections,
+
+Section 1: Join as a Coordinator
+1. What are the tasks of a coordinator?
+2. Skills you can gain by being a coordinator (What's in it for you)
+3. Steps
+4. Submit Full Name, Contact, and Coordinator Type (dropdown) - we will reach out (email and any other info seems unnecessary - other coordinators can reach out directly or circulate the form on contact)
+
+Section 2: Join as a Volunteer
+1. What are the tasks of a volunteer?
+2. Why be a volunteer, what skills they gain?
+3. Steps
+4. Submit Full Name, Contact, and Volunteer Type (dropdown) - we will reach out
+
+Section 3: Donate
+1. How are the donations utilised? Every 1000 INR donation equates what?
+2. Steps
+3. CTA: QR Code
+
+Section 4: FAQs
+- FAQs related to coordinator, volunteering, and donations. Certificates, NGO status, etc
+
+### Resources
+Goal of the page: Provide emergency contacts and information. No CTAs.
+
+1. Emergency Numbers - filter by regions in Bangalore
+2. Basic First Aid - first responders | Nearby coordinators
+3. Kannada Classes
+
+### Contact Us
+Goal: For enquiries from press, businesses, etc
+
+1. HQ Address + Map (should this be public?)
+2. Email + WA Contact
+
+### V2
+
+Goals are unclear for following items or how they can be used
+1. Separate HQ section
+2. Calendar/Announcements
+3. Activities
