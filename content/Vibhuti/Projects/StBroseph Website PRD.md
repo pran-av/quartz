@@ -140,3 +140,5 @@ Goals are unclear for following items or how they can be used
 1. Separate HQ section
 2. Calendar/Announcements
 3. Activities
+4. Merch
+5. Blog
