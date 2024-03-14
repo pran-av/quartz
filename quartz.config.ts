@@ -7,7 +7,9 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "umami",
+      host: "https://analytics.us.umami.is/script.js",
+      websiteId: "ab8f6ba0-a32e-490e-b323-d9424bfbeb7d"
     },
     locale: "en-US",
     baseUrl: "garden.pranavmandhare.com",
