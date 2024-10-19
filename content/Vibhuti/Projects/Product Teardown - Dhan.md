@@ -1,3 +1,12 @@
+---
+date: 2024-05-21
+tags:
+  - teardown
+  - dhan
+  - fintech
+---
+
+
 5 lakh total active users
 1 lakh MF active users
 ### Company age: 
