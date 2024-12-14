@@ -56,3 +56,8 @@ the company I want to build will have following goals,
 ### Ideas
 1. A software tool for citizens to record their problems and a management tool for governments and public/private agencies to address the issues raised. **Metric: Track efficiency in terms of solution delivered or time to delivery**
 2. Space logistic solutions that help in development of the space manufacturing, defence, resource extraction and exploration industries. **Metric: Develop and patent a space 'trucking' product.**
+3. Tools that help make it easy to program and deploy robots, robots can be any IoTs, Drones, or any software-hardware product that can be used in factories, retail shops, malls, homes, entertainment, adventure sports, hazardous industries
+4. Earth observation tools that can help predict or fight calamities. Tools that can help map or detect asteroids/satellites and lunar surfaces. Warning systems for satellite proximities and collisions.
+5. Drone swarm management and programming tools
+6. Manufacturing of CNC, 3D Printer, IOT or Chip related parts
+7. Space logistic solutions that help in development of the space manufacturing, defence, resource extraction and exploration industries
