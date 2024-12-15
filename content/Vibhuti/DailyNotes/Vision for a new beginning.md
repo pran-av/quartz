@@ -60,4 +60,3 @@ the company I want to build will have following goals,
 4. Earth observation tools that can help predict or fight calamities. Tools that can help map or detect asteroids/satellites and lunar surfaces. Warning systems for satellite proximities and collisions.
 5. Drone swarm management and programming tools
 6. Manufacturing of CNC, 3D Printer, IOT or Chip related parts
-7. Space logistic solutions that help in development of the space manufacturing, defence, resource extraction and exploration industries
