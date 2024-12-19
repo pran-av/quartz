@@ -1,7 +1,9 @@
 ---
 date: 2024-12-16
+tags:
+  - geology
 ---
-an Intrusive [[Igneous Rocks]]
+an Intrusive [[Igneous Rocks | Igneous Rock]]
 
 ![[GraniteStructure.jpeg|450]]
 #### Composition
