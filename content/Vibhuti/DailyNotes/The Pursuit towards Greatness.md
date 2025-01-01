@@ -1,7 +1,8 @@
 ---
 date: 2025-01-01
 ---
-Following is an AI enhanced copy, for original read [#^515342]
+> [!info] Following is an AI enhanced copy
+> for original writing [[#Click for the Original Writing]]
 
 For as long as I can remember, I’ve been… ordinary. Just good enough to get by. I was fine with it, really—being an average kid, an average teenager. Back then, I didn’t even have a concept of mediocrity. It wasn’t something I questioned. But I also didn’t understand greatness, not until some part of my adult life.
 
@@ -22,9 +23,7 @@ So, I choose to trust the process. To trust that as long as I keep moving, the f
 
 ---
 
-#### Click for the Original Writing
-
-^515342
+#### Original: The Pursuit towards Greatness
 
 As far as I remember, I have always been a mediocre, just good enough to keep going. I was okay being a mediocre kid, a mediocre teenager and I had no concept of mediocrity until some part of my adult life. I had no concept of greatness either. And then it just appeared one fine day - possibly by looking at people around me. Someone who is great at sports, somebody who is part of a premier institute, someone who's part of a well known brand.
 
