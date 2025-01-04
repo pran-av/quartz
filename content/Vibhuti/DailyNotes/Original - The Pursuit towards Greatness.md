@@ -1,7 +1,6 @@
 ---
 tags:
   - original
-draft: "false"
 ---
 As far as I remember, I have always been a mediocre, just good enough to keep going. I was okay being a mediocre kid, a mediocre teenager and I had no concept of mediocrity until some part of my adult life. I had no concept of greatness either. And then it just appeared one fine day - possibly by looking at people around me. Someone who is great at sports, somebody who is part of a premier institute, someone who's part of a well known brand.
 
