@@ -1,8 +1,6 @@
 ---
 date: 2024-06-29
-tags:
-  - infinitylearn
-  - learnings
+tags: []
 ---
 Can a user make a purchase of an educational product without connecting with a human? The EdTech industry is known to be sales led. This might be restricted to the Indian target audience. But in that case, why is the Indian audience comfortable to buy apparel, electronics, food, and services like insurance, hyperlocal, travel, hospitality online via a marketplaces -- but not educational services?
 
@@ -32,6 +30,3 @@ Though for being the talk of the town, need to achieve a certain brand or produc
 
 #### A very Clear Need
 **PS:** I just realised there's another reason that made above two purchases possible, A very clear 'Need'. I won't event listed to an unskipable advertisement if there isn't a need. I think in the age of abundance we humans have mastered the art of only processing information that satisfies the Need filter.
-
-### What is EdTech Missing?
-Lets look at the above factors in other industries.
