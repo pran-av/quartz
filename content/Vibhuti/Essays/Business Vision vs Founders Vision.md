@@ -1,7 +1,6 @@
 ---
 date: 2024-03-04
 ---
-
 I believe there's a difference between business vision and founders vision. 
 
 I even believe that business vision is the most crucial amongst the two. Having a business vision for a company is like our body wanting to breathe air, it means survival. But although air is so crucial for our bodies, when was the last time you heard someone say that they live to breathe air?

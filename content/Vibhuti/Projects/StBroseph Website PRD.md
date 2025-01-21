@@ -1,7 +1,8 @@
 ---
 date: 2024-02-15
+tags:
+  - PRD
 ---
-
 ### Goals
 1. Raise an Issue - Download the App
 	1. Report Issues immediately via Whatsapp

@@ -83,7 +83,3 @@ Onboarding:
 5. Onboarding: Form to understand Persona and describe relevant features -> takes user to home screen post this to explore while KYC is being reviewed -> Can find the live KYC status via Home or LHS
 
 Activation:
-
-### Presentations
-
-1. 

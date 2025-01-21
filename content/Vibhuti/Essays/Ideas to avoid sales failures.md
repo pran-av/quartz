@@ -2,9 +2,6 @@
 date: 2024-01-07
 ---
 
-#### Sales Failures
-#sales
-
 1. **What To Sell:** Targets should not just be focused on incentives, what to sell also matter. More like, this incentive is this is sold. What is being sold should in turn align within the business strategy -- that selling this has a long term benefit.
 	1. SKU Management plays a good role of restricting 'what is sold'. But things like, unrealistic promises made during sales cannot be solved via OMS.
 	2. UI communication to the customer directly can help limit unrealistic promises cases, as the user is educated directly on features, etc. UI also helps sales make lesser mistakes while pitching.

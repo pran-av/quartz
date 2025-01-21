@@ -4,7 +4,6 @@ tags:
   - book
   - statistics
 ---
-
 My first introduction to this methodology came from the book 'The Art of Statistics' by David Spiegelhalter. 
 
 The problem solving methodology used in statistics to reach conclusions. The steps include,
