@@ -5,7 +5,7 @@ Welcome to this mental garden! If you are new to this website, here are some pat
 1. [Vibhuti](Vibhuti/) includes writings on fundamental topics. These topics are written based on how I understand them (and not necessarily how the world defines them). Ideal to read if you wish to explore my understanding of a certain topic, a few references below for reading:
 	1. [[Agentic AI]] - what is an AI agent for me
 	2. [[Jet Propulsion]] - how I understand the topic of jet propulsion
-	3. [[Channel Matrix for Customer Acquisition]] - my framework to identify channels for a GTM strategy
+	3. [[Channel Matrix for Customer Acquisition]]- my framework to identify channels for a GTM strategy
 2. [Essays](Vibhuti/Essays/) will take you through my mind explorations - the topics I have thought and explored deeply leading to a conclusion or a hypothesis or an assumption or a prediction. A few references are listed below:
 	1. [[The Pursuit towards Greatness]] - why it is important to chase greatness
 	2. [[Passenger Car Sales in CY2024]] - a market exploration and imagining what's next
