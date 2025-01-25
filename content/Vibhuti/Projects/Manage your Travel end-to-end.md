@@ -39,24 +39,119 @@ Primary users include:
 
 ## Core Features and Requirements
 
-### 1. AI-Powered Travel Planning Interface
+#### What is an Itinerary?
+An itinerary of a travel plan should include following elements,
+1. It should have **at-least one destination**. There can be multiple destinations - in such case we need to define where to start from and where to end.
+	1. If a single destination, the system would suggest additional destination based on the goal of travel.
+	2. If multiple destinations, the system will include the existing destination as well suggest additional based on the goal of travel.
+2. It should include a **period of travel**. It can be in number of days, weeks, or months (excluding years). Specific start or end dates can be defined optionally.
+3. It should include the **goal of travel**. A goal has a predefined definition to it - for instance adventure travel has a specific characteristics compared to spiritual travel. A custom goal is available where the user has to manually describe.
+4. User should be able to **optionally define the mode of travel** like car, bike, bicycle, walking - a mode of travel is to be defined in case of personal vehicles to get the best routes related to the mode. No need to define if public transport is to be used. 
+5. User should be able to **optionally add food, stay, and travel preferences** to get restaurant, hotel and travel suggestions. Otherwise user can opt out of these suggestions.
+6. User should be able to **optionally add past experiences** based on which they can specify to remove or include selective places or routes.
 
-#### Conversational Planning
+Based on the above declared elements, an output itinerary should group destinations within day, week, or month frequencies based on total period of travel and the goal surrounding it.
 
-- Implement natural language processing to understand user preferences through chat
+Each 'Request' outputs a single 'Itinerary' wherein the 'Itinerary' includes single or multiple 'Segments' stitched together - a user finalises an 'Itinerary' by confirming each 'Segment'. The initial and final itinerary may differ based on the order of destinations, routes, different stay-food-transport preferences.
+
+**A sample itinerary should look like,**
+
+Title: Summer Vacation Itinerary
+Duration of Travel: 7 days
+Goal of Travel: Adventure
+
+Segment A, Segment Summary { 
+Frequency: Day 1
+Route: Destination A - Destination B - Destination C
+Distance/Duration: 100 kms / 5 hours 
+
+Highlights
+
+Tips }
+
+Segment B, Segment Summary { 
+Frequency: Day 2
+Route: Destination D - Destination E - Destination F
+Distance/Duration: 100 kms / 5 hours 
+
+Highlights
+
+Tips }
+
+...
+
+#### What are Segments?
+An itinerary can have a single or multiple segments within it. Each segment is defined by a title and a summary. Each segment within an itinerary is of equal frequency (day, week, or month).
+
+**Summary of a Segment:** The summary differentiates a segment A from segment A' or a segment B.
+
+**Highlights of a Segment:** These are bullet points describing the main attractions within a segment, the time-slots to visit these attractions, short description about the destinations. Stay, Travel, and Food suggestions are included as highlights.
+
+**Tips within a Segment:** Shares information about what to carry, dressing suggestions, any cautionary points or look out for, or weather related updates.
+
+**Rearrange Segments (drag and drop):** Segments can be dragged and dropped to rearrange them.
+
+**Rearrange Destinations (drag and drop):** Destination can be dragged and dropped into other segments.
+
+### Conversational Planning
+
+Travel Planning is a big process that has various set of chunks within it, some chunks require research while other chunks require thinking or taking actions - below is an attempt to distribute the chunks into steps. A single step or multiple steps can be combined into an operation.
+
+**Data Collection and Processing Operation**
+
+**Step 1:** Collect the basic and necessary information by prompting the user with questions. The questions should be asked the moment the user clicks 'Create an Itinerary' - it should be like an onboarding flow but focus on having less friction to avoid user churn.
+
+**Step 2:** Allow user to have a more specific conversation and share past experiences travelling through the similar route - something they want to avoid or experience again. Any latest information regarding roads may be provided by user along with other cautionary points.
+
+**Step 3:** The system should summarise what it has understood from the inputs and discussions and take a confirmation from user to proceed with research. The system should ensure that the context behind its understandings is also shared to avoid misunderstandings.  
+
+**Research and Reasoning Operation**
+
+**Step 4:** With the existing data set collected in above two steps the agent should be able to start its research - the research involves looking into the web and thinking for the best options that align with the input data.
+
+**Step 5:** While thinking there might be an extra clarifying questions to be asked back to the user.
+
+**Step 6:** A draft itinerary is generated, its segmented based on hours, days, weeks, or months. The user is required to confirm each segment or make manual drag drop changes.
+
+**Visualisation Operation**
+
+**Step 7:** The itinerary is exported onto a map - mention destinations along with routes.
+
+### Prioritisation
+##### P0
+ - Implement natural language processing to understand user preferences through chat. Capture key details including dates, destinations, group size, and trip type.
 	- Ask questions to the user to get the core data like, the dates of their travel, the destination or set of destinations they want to visit, what type of travel is this - family vacation, adventure with friends, relaxed and de-stress, cultural exploration, etc.
+		- Period of travel, exact dates if available
+		- Destination or group of destination that you wish to be covered
+		- Mode of travel
+		- Goal of the trip, specific requests or experience you are looking for
+		- Stay, food, and travel preferences
+		- Any past experiences user would like to share
 	- Once the core questions are collected, further the user should be able to chat about special requests
-- Capture key details including dates, destinations, group size, and trip type
-- Generate customizable itinerary suggestions based on user conversations
-- Support modification and refinement of generated itineraries
-	- User should be able to update the dates, destination or any data input that was previously added during the chat phase, the new itinerary considers the latest updates
+	- Store all the data received as primary context for further processing of this journey
+- Generate customisable itinerary suggestions based on user's conversations with the app. The suggestions should be as per the context received through the initial chat.
+	- Use Web Search data and Reasoning capability of the model. Use the user provided data/experiences as additional to 
+- Allow user to discard the current itinerary and start a new one
+##### P1
+Support modification and refinement of generated itineraries
+- User should be able to update the dates, destination or any data input that was previously added during the chat phase, the existing itinerary does a reprocessing based on the latest data modifications. Old context is modified here - consider latest context to suggest itineraries
+- User should be able to save the modifications once made, or post a recent chat click on 'Generate Itinerary' to sink the latest context.
+##### Tech Stack
+LLM for conversational feature and generating itineraries - Deepseak R1
 
 #### Interactive Map Integration
 
-- Provide intuitive map interface for manual destination pinning
+##### P0
+
+- Post an Itinerary is generated using above method, plot the destination and routes on a map interface.
+	- Destinations can be plotted based on the name of the place
+	- Route can be suggested and plotted on map based on the preferences shared in the context - if the context mention to take a scenic route instead of shortest. Then the LLM should be able to read through reviews and other data available to identify such route and then suggest.
+	- If options are available, display multiple routes with the best route selected by default
+
+##### P2
 - Enable bulk import of destination lists with geocoding support
-- Display comprehensive route visualization
-- Support drag-and-drop functionality for itinerary optimization
+##### P3
+- Allow user to manually input data on the map interface
 
 ### 2. Intelligent Route Planning
 

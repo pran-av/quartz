@@ -9,9 +9,16 @@ date: 2025-01-21
 | Citizen Stack                                                                | Software and hardware tools to solve social problems or make existing solutions more efficient.                                                              |
 | A Phone App where you can connect with your contacts and search for services | Communities made as whatsapp groups are increasing, personal contacts is a version of community which can be leveraged                                       |
 | Hydroponics and vertical farming for Makhana cultivation                     | Cultivating Makhana is difficult - there's a opportunity to build a moat on scalable cultivation and processing.                                             |
+| Self hosted email list integration                                           | Host your email list on own servers, publish anywhere, integrations to connect with your subscribers                                                         |
+| AI data centre's in space                                                    | Easy to harvest energy longterm                                                                                                                              |
 
-| People to meet                                                                | Goals                                                                               |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Dr. Manoj Kumar, senior scientist at the National Research Centre for Makhana | Explore how makhana cultivation can be scaled through artificial farming techniques |
+| People to meet                                                                | Goals                                                                                                                                    |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Dr. Manoj Kumar, senior scientist at the National Research Centre for Makhana | Explore how makhana cultivation can be scaled through artificial farming techniques                                                      |
+| Sanjay Gupta of Yotta Infrastructure                                          | 18 years of experience building, managing and scaling data centres with Reliance. Niranjan Hiranandani invested in Yotta Infrastructure. |
 
 
+| Products to try      | Goals                     |
+| -------------------- | ------------------------- |
+| Perplexity Sonar API | use in travel itineraries |
+| DeepSeek R1          | use is teacher agents     |
