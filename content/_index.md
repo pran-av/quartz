@@ -18,17 +18,14 @@ Welcome to this mental garden! If you are new to this website, here are some pat
 	1. [[Self Assisted Purchases]] - collates my personal experience of purchasing products and trying to observe my behaviour to find a pattern
 	2. [[English literacy in Indian Villages]] - a travel experience near Hampi
 
+If you wish to get a weekly summary of all my explorations - including all types mentioned above - [subscribe to my email list](http://eepurl.com/i8vmEk)
 ### Thoughts behind this website
 
 This is an Obsidian blog, or a Knowledge Graph exported as a website. Also known as a Digital Garden by many.
 
-Why Garden? Like when you stroll in an actual garden, you end up finding all types of new flowers and insects, somehow you are more curious, you stop sometimes and observe such things that make you curious. And then you move on to another part of the garden. The next when you visit the garden, you can expect to find something new. And this repeats everytime.
+Why Garden? Like when you stroll in an actual garden, you end up finding all types of new flowers and insects, somehow you are more curious, you stop sometimes and observe such things that make you curious. And then you move on to another part of the garden. The next when you visit the garden, you can expect to find something new. And this repeats every time.
 
-This website is meant to generate a similar curiosity while strolling the digital garden. A reader can stop by and read the things that they find interesting and then decided whether to go deep within or continue to another part of the garden. Every time you visit, the old topics you have already read, might have some additional data or insight added.
-
-The Garden contains a lot of resources, not all are worth publishing. What gets published, are generally things that I presume worth sharing. References to the garden are always provided in the published essays, interested readers can be guided to Vibhuti where they can spend time exploring in depth. Like every garden has an entry and exit point and paths within itself, we need a pathway for a digital garden as well, and that is achieved by an email newsletter I have linked below. I recommend subscribing so that you don't miss new happenings in the garden:
-
-<iframe src="https://pranavv.substack.com/embed" width="480" height="150" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+This website is meant to generate a similar curiosity while strolling the digital garden. A reader can stop by and read the things that they find interesting and then decide whether to go deep within or continue to another part of the garden. Every time you visit, the old topics you have already read, might have some additional data or insight added.
 
 Stay Curious!
 PS: If you'd like to get in touch, reach me at pranavdotexe(at)gmail.com
