@@ -2,15 +2,16 @@
 date: 2025-01-21
 ---
 
-| **Idea**                                                                     | **Vision**                                                                                                                                                   |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Travel Itineraries                                                           | Google Maps does not provide a seamless nature language experience for travel planning and bookings                                                          |
-| Role playing educational games for those targeting competitive exams         | Teachers for all -- this is theoretically scalable using teaching agents. A single teacher can assist 1:1 learning experience for 100 students at same time. |
-| Citizen Stack                                                                | Software and hardware tools to solve social problems or make existing solutions more efficient.                                                              |
-| A Phone App where you can connect with your contacts and search for services | Communities made as whatsapp groups are increasing, personal contacts is a version of community which can be leveraged                                       |
-| Hydroponics and vertical farming for Makhana cultivation                     | Cultivating Makhana is difficult - there's a opportunity to build a moat on scalable cultivation and processing.                                             |
-| Self hosted email list integration                                           | Host your email list on own servers, publish anywhere, integrations to connect with your subscribers                                                         |
-| AI data centre's in space                                                    | Easy to harvest energy longterm                                                                                                                              |
+| **Idea**                                                                     | **Vision**                                                                                                                                                   | Status   |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| Travel Itineraries                                                           | Google Maps does not provide a seamless nature language experience for travel planning and bookings                                                          | PRD      |
+| Role playing educational games for those targeting competitive exams         | Teachers for all -- this is theoretically scalable using teaching agents. A single teacher can assist 1:1 learning experience for 100 students at same time. |          |
+| Citizen Stack                                                                | Software and hardware tools to solve social problems or make existing solutions more efficient.                                                              | PRD      |
+| A Phone App where you can connect with your contacts and search for services | Communities made as whatsapp groups are increasing, personal contacts is a version of community which can be leveraged                                       |          |
+| Hydroponics and vertical farming for Makhana cultivation                     | Cultivating Makhana is difficult - there's a opportunity to build a moat on scalable cultivation and processing.                                             |          |
+| Self hosted email list integration                                           | Host your email list on own servers, publish anywhere, integrations to connect with your subscribers                                                         |          |
+| Compute data in space                                                        | Easy to harvest energy longterm                                                                                                                              | Research |
+| Internet for Agents                                                          | Help websites build infrastructure to help agents take quick and efficient actions                                                                           |          |
 
 | People to meet                                                                | Goals                                                                                                                                    |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
