@@ -12,6 +12,7 @@ date: 2025-01-21
 | Self hosted email list integration                                           | Host your email list on own servers, publish anywhere, integrations to connect with your subscribers                                                         |          |
 | Compute data in space                                                        | Easy to harvest energy longterm                                                                                                                              | Research |
 | Internet for Agents                                                          | Help websites build infrastructure to help agents take quick and efficient actions                                                                           |          |
+| Space Logistics and Communication Infrastructure                             | Manage satellite swarms and inter satellite communications. Last mile logistic fleets for orbital operations.                                                |          |
 
 | People to meet                                                                | Goals                                                                                                                                    |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -19,7 +20,8 @@ date: 2025-01-21
 | Sanjay Gupta of Yotta Infrastructure                                          | 18 years of experience building, managing and scaling data centres with Reliance. Niranjan Hiranandani invested in Yotta Infrastructure. |
 
 
-| Products to try      | Goals                     |
-| -------------------- | ------------------------- |
-| Perplexity Sonar API | use in travel itineraries |
-| DeepSeek R1          | use is teacher agents     |
+| Products to try      | Goals                      |
+| -------------------- | -------------------------- |
+| Perplexity Sonar API | use in travel itineraries  |
+| DeepSeek R1          | use is teacher agents      |
+| Exa AI               | Deepseek R1 Web Researcher |

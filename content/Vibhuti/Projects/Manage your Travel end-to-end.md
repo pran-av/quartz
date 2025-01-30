@@ -1,6 +1,38 @@
 ---
 date: 2025-01-19
 ---
+### Chain of Thoughts
+
+This is a longterm idea. I tried putting up a robust PRD - a lot of effort is going onto perfect the PRD and as a result actual product development takes a hit.
+
+Apart from this I need to test the market if they need a solution for planning itineraries. There are many people who do not plan and impromptu travel - and also there is a market who likes to plan. Maybe I can release a very small feature that can help me clear my hypothesis.
+
+What is my biggest hypothesis?
+That travellers want to plan their travel destinations and routes beforehand.
+
+Do the above persona already has some tools they are using? The best tool from my personal experience is to ask an LLM to plan an itinerary for them. LLMs do a good job in planning - assuming that the prompt is good enough.
+
+If itinerary generation is not the problem, what is? I believe exporting the plan in terms of mapped routes and destinations is something which has to be done manually. 
+
+What's the ideal solution? An agent can help identifying the destination and routes from the input itinerary and covert it to map layout. If we tell users that they can generate LLM itineraries and convert them into maps -- it might be helpful.
+
+So the initial product to clear hypothesis can be - a text-to-map conversion of an itinerary.
+
+Is the solution simple enough? We can take following steps,
+1. Collect the itinerary from the user
+2. Convert it into a geo-coordinate format (Can plot into CSV format and later convert CSV to KML)
+3. Plot the geo-coordinates onto a map (No point of opening dependency with Google Maps - best to use our own map interface, to start with can be just a screenshot)
+	1. Try Ola Maps or Open Street Maps
+4. Export the map as an image or download for offline use, view itinerary details along with the map plotting
+
+How to do it currently?
+1. Go to My Maps on Desktop
+2. Plot the destinations, routes, and shapes manually over the map
+3. Share as a link
+We need to automate the first two parts.
+
+----
+### Idea
 
 People who travel regularly or plan vacations once a while invest a considerable amount of time on creating a travel itinerary, they look for places to visit based on their personal taste - some like to visit the popular destinations, some like a fix of popular and less-touristy places, some intend to only experience adventurous and less taken paths. They look for days and timings when these places are open and add them accordingly in the itinerary - additional they look for the weather to be prepared on what clothings to carry or is it too hot/cold to visit certain times of the day. They plan the travel routes to cover maximum places or create the best experience, as per their finalised destinations Between destination they plan the travel medium - an auto, bike, buses, trains, flights, metros - they book the tickets on spot or before the travel. The look for best places to stay for the night or the best places to have lunch and dinner - the best places are influenced by public reviews and the offering.
 
@@ -17,8 +49,108 @@ We need to create an application that allows planning such frequent or once a wh
 
 The monetisation mechanism for such app will be a SaaS subscription fee for more than 3 travel plans a year. For any kind of third party bookings via the app (cabs, hotels), charge a convenience fee.
 
+---
+## Version 01: Add Places, Routes and Create Shareable Itineraries
+
+**Finalised PDF:** ![[TravelPlanner-v1.1.pdf]]
+
+A user who wants to plan their travel on an interactive map interface - opens this application, adds places by their names or address. Further the user confirms routes between each pair of places to create an itinerary. The user can add personal and optional notes to places and routes as required. Post the places and routes are confirmed, the user can generate a shareable link to make the itinerary viewable to all that can access it through the link.
+
+This feature as a standalone product allows user an option other than Google Maps to plan their travel itinerary. User can add notes to places and plan and confirm each route individually, unlike Google Maps. This feature as a standalone would be targeting a niche user persona of travel planners - unlike goggle maps which is a generic app.
+
+#### Flow
+1. a user visiting the website, on loading, can see a vector map loaded - the user can play around by zooming and panning
+2. the user is able to click on a bar to add places onto this map interface. On clicking Add, the places are added as markers onto the map.
+3. the user should be able to click on these places to remove them or add personal notes to them.
+4. the user should be able to access a 'Plan Route' option from the UI and select any two place markers to plan a route between them. The user is displayed multiple routes from which they can confirm one.
+5. the user can click on any added route to add personal notes or remove those routes
+7. the user should be able to save a map post completely adding all places and routes or midway. A saved map can be accessed later for completion.
+8. the user can access the saved maps through a CTA on UI over the vector map interface. At any point of time a user loads the website they can add new places and routes to create a new map or open a saved map.
+9. on clicking saved map icon, the user can select any of their saved maps to view the already added places and routes
+10. the user should be able to generate a shareable link for the saved maps, this link can be shared to anyone who can open this map with all places and routes visible in view-only mode
+12. post a map is saved, the user should receive a popup to share their feedback. Once a user has already given a feedback, then the same popup should not be visible to them again
+
+#### Requirements
+
+**Feature Description and Tech Stack**
+
+| **Feature**                                                             | **Feature Description and Technical Documents**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Tech Stack**                                                                                                        |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **1. Home Page - Render Vector Map: Zooming & panning functionalities** | As soon as the website is loaded, render a map with Pune as the default location. User should be able to zoom and pan this map<br> <br>Define map style https://cloud.olakrutrim.com/console/maps?section=map-docs%2Fmap-tiles%2Fvector-map-tiles <br><br>Setup and Initialise Ola Maps SDK to Render vector styles https://maps.olakrutrim.com/krutrim/docs/sdks/web-sdk/setup                                                                                                                                                                                                                                                                                                                                                                                                                                       | Use Ola Maps WebSDK to render Vector Maps                                                                             |
+| **2. Add Places**                                                       | Display a bar on top right for user to Add Places - user enters the name or address of the place and click add place - use geocoding based on place name https://cloud.olakrutrim.com/console/maps?section=map-docs%2Fgeocoding%2Fgeocoding-api (address = name of place)<br><br>On click Add Place, the place should be added as a marker in the map, the map should route to the location of this place - Add a Default Marker for places on the map https://maps.olakrutrim.com/krutrim/docs/sdks/web-sdk/markers<br><br>If multiple places are available with same name or address, allow user to confirm either one of them. To confirm click on the place marker to see a confirm CTA. If a single place is available for the input, then confirm by default.<br><br>Save places in SQLite only when confirmed. | Ola Geocoding API + SQLite to save places post confirmation                                                           |
+| **3. Click on markers to add user notes**                               | Click Event on a Place Marker within the map https://cloud.olakrutrim.com/console/maps?section=map-docs%2Fsdks%2Fweb-sdk%2Fmap-controls<br><br>User can remove the place marker or add a personal note to the place                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Ola Maps Events + React State Capture + SQLite for notes, remove operations                                           |
+| **4. Add route between two points**                                     | Use Directions Basic API with waypoints https://cloud.olakrutrim.com/console/maps?section=map-docs%2Frouting-apis%2Fdirections-api <br><br>User should be able to select a Route tool on the map overlay and then select any two place markers to create a route                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Ola Maps Routing API + Next JS and Tailwind for overlay CTAs like Route tool                                          |
+| **5. Identify and confirm routes**                                      | React State + SQLite (use IndexedDB) https://github.com/localForage/localForage<br><br>Use event to identify route click https://cloud.olakrutrim.com/console/maps?section=map-docs%2Fsdks%2Fweb-sdk%2Fmap-controls<br><br>If there is a single route, confirm it by default, otherwise the user can select any one route and confirm through a CTA.<br><br>Once a route is confirmed user can click on any route to get a remove option. On clicking remove, the route should not be visible on the map.<br><br>Record a route in SQLite only post confirmation.                                                                                                                                                                                                                                                     | Use SQLite IndexedDB and library like localForage + React State, modals for confirm functionality + Ola WebSDK Events |
+| **6. Add Notes or Remove routes**                                       | React State + SQLite (use IndexedDB) https://github.com/localForage/localForage<br><br>Allow user to enter personal notes.<br><br>Click on a route, a remove CTA will be available in the description panel, on clicking the route will be removed.<br><br>User can recreate a new route between those two place markers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Use SQLite IndexedDB and library like localForage + React State                                                       |
+| **7. Save the map with all routes added**                               | SQLite (use IndexedDB) https://github.com/localForage/localForage; <br><br>A saved map includes all the added place markers and the confirmed routes along with any user side notes added. If the user closes the application they should be able to; <br><br>Save maps against the user session - avoid authentication flow in the application                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Use SQLite IndexedDB and library like localForage + React State                                                       |
+| **8. Prompt user for feedback after saving**                            | Identify the user based on browser session.<br><br>Only ask for feedback when a map is successfully saved. Allow user to close the modal without sharing.<br><br>If a user has already shared the feedback, do not ask again during next saves.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | React Modal + Simple Form. Store feedback via SQLite                                                                  |
+| **9. Share map via link and View shared maps**                          | User should be able to one-click copy the link to share it<br><br>On link clicks anyone can view the maps but not edit them                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Next.js API Route + URL shortener (use TinyURL)                                                                       |
+| **10. Option to View Saved Maps**                                       | View Saved Maps CTA available on the map interface, user can click on this to be routed to a page with list of saved maps<br><br>Only maps of the same user should be accessible in a browser - Identify the user based on sessionStorage or persistent browser ID<br><br>On clicking any Saved Maps, the user would be able to see the places and routes for that map and make further modifications to resave                                                                                                                                                                                                                                                                                                                                                                                                       | Next.js + Tailwind - to add overlay CTAs                                                                              |
+- Use Next JS + Tailwind for frontend
+- This version of application is serverless - as in IndexedDB to be used for storage and retreival
+- Develop a PWA so that it can run on web and can be installed in mobile devices
+- Ensure that the UI/UX experience is good on desktop as well as mobile screens
+- Use Ola Maps for mapping use cases - use Ola Maps Website SDK for rendering vector maps, managing markers, and events. Separate Ola Maps APIs are available for Directions, Routes as specified in detail in the above table.
+- **Storage Method:**
+    - **Use IndexedDB via LocalForage** to store maps, routes, and places **without a backend**.
+    - **IndexedDB** allows structured storage, making it faster than LocalStorage for large datasets.
+- **User Session Management (No Authentication):**
+    - Use **sessionStorage or a persistent browser ID** (e.g., a hashed cookie value).
+    - Store session ID in `maps` and `feedback` tables to differentiate users.
+- **Map Saving & Loading:**
+    - Save maps as JSON in IndexedDB.
+    - Retrieve and display them using React state.
+- **Shareable Links:**
+    - Store `map_id` in the URL, e.g., `yourdomain.com/map/abc123`
+    - Fetch map details using `map_id` when the link is opened.
+- **Routing Optimization:**
+	- Use **Ola Maps Routing API** to fetch route data and store it in **JSON format** inside `route_data` column.
+
+**SQLite Schema**
+```
+-- Table to store maps created by the user 
+
+CREATE TABLE maps ( 
+id TEXT PRIMARY KEY, -- Unique identifier (UUID or NanoID) 
+name TEXT NOT NULL, -- User-defined map name created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp of creation 
+session_id TEXT NOT NULL -- Session-based identifier (no login required) );
+
+-- Table to store places within a map 
+
+CREATE TABLE places ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+map_id TEXT NOT NULL, -- Foreign key to maps table 
+name TEXT NOT NULL, -- Name of the place 
+latitude REAL NOT NULL, -- Latitude coordinate 
+longitude REAL NOT NULL, -- Longitude coordinate 
+user_notes TEXT, -- Optional user-added notes 
+FOREIGN KEY (map_id) REFERENCES maps(id) ON DELETE CASCADE ); 
+
+-- Table to store routes created within a map 
+
+CREATE TABLE routes ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+map_id TEXT NOT NULL, -- Foreign key to maps table 
+start_place_id INTEGER NOT NULL,-- Foreign key to places table (starting point) end_place_id INTEGER NOT NULL, -- Foreign key to places table (ending point) route_data TEXT NOT NULL, -- Serialized JSON data for route details (path, distance, time) 
+user_notes TEXT, -- Optional user-added notes 
+FOREIGN KEY (map_id) REFERENCES maps(id) ON DELETE CASCADE, 
+FOREIGN KEY (start_place_id) REFERENCES places(id) ON DELETE CASCADE, 
+FOREIGN KEY (end_place_id) REFERENCES places(id) ON DELETE CASCADE ); 
+
+-- Table to store user feedback 
+
+CREATE TABLE feedback ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+session_id TEXT NOT NULL, -- Identify user without login 
+map_id TEXT NOT NULL, -- Map associated with feedback 
+feedback_text TEXT, -- User feedback 
+submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+FOREIGN KEY (map_id) REFERENCES maps(id) ON DELETE CASCADE );
+
+```
+
 ___
-# PRD
+## PRD
 
 ## Overview
 
