@@ -1,5 +1,6 @@
 ---
 title: Welcome to the Garden
+date: 2025-01-21
 ---
 Welcome to this mental garden! If you are new to this website, here are some pathways you can explore,
 1. [Vibhuti](Vibhuti/) includes writings on fundamental topics. These topics are written based on how I understand them (and not necessarily how the world defines them). Ideal to read if you wish to explore my understanding of a certain topic, a few references below for reading:

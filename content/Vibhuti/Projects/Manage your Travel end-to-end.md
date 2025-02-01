@@ -50,6 +50,24 @@ We need to create an application that allows planning such frequent or once a wh
 The monetisation mechanism for such app will be a SaaS subscription fee for more than 3 travel plans a year. For any kind of third party bookings via the app (cabs, hotels), charge a convenience fee.
 
 ---
+### User Research
+
+**Archetype 01**
+- Majority of the time, do you travel solo, with family or with friends?
+- How do you classify majority of your travels? Luxury, Relaxed, Adventurous, anything else?
+- Do you generally travel on a pre-defined budget or don't budget? How often do you exceed your budget?
+- How many trips do you plan annually - domestic + international combined?
+
+- Enjoy the planning part
+- Plans when solo and may not when with a group, the degree of planning depends on group
+- Transport + Accommodation - If in groups, takes over 7 days to completely book travel and accommodation. When in groups, accommodation options are shared on whatsapp before finalising. Will be much faster for solo travel.
+- Places to visit - Start planning 5 days before the trip, depends on how big the trip is. Identify places based on Google, Instagram, and Youtube searches. Add them in a google sheet and later plot them on a map to create a route. Shares the link for easy access during travel - 30 mins daily - around 3-4hrs invested.
+- Route Planning - Too much work to calculate distance between multiple points, uses ChatGPT to get an ideal route. Has to do extra work to translate the LLM output to sheets and then maps.
+- Intracity travel - Mostly booked on the spot. Sometimes bike rentals are pre-booked.
+- Why do they use Google Maps? Easy to add places and look at reviews and ratings before planning.
+- Parents travelling - generally book via agencies, have no issues with accessing apps to book caps or hotels if required
+
+
 ## Version 01: Add Places, Routes and Create Shareable Itineraries
 
 **Finalised PDF:** ![[TravelPlanner-v1.1.pdf]]
