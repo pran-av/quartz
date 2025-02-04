@@ -20,8 +20,9 @@ date: 2025-01-21
 | Sanjay Gupta of Yotta Infrastructure                                          | 18 years of experience building, managing and scaling data centres with Reliance. Niranjan Hiranandani invested in Yotta Infrastructure. |
 
 
-| Products to try      | Goals                      |
-| -------------------- | -------------------------- |
-| Perplexity Sonar API | use in travel itineraries  |
-| DeepSeek R1          | use is teacher agents      |
-| Exa AI               | Deepseek R1 Web Researcher |
+| Products to try      | Goals                          |
+| -------------------- | ------------------------------ |
+| Perplexity Sonar API | use in travel itineraries      |
+| DeepSeek R1          | use is teacher agents          |
+| Exa AI               | Deepseek R1 Web Researcher     |
+| Mindsweeper AI       | Beta Test the product/Feedback |

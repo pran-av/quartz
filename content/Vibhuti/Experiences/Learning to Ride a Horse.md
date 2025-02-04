@@ -3,6 +3,14 @@ date: 2025-01-29
 tags:
   - sports
 ---
+## Table of Content
+
+| Day         | Topics                                                                      |
+| ----------- | --------------------------------------------------------------------------- |
+| Day 1       | [[#Walking the horse in circles]] ; [[#Walking the horse while Mounted]]    |
+| Day 2 and 3 | [[#Walking the horse while Mounted]] ; [[#Halting the horse while Mounted]] |
+| Day 4       | [[#Turning the horse while Mounted]]                                        |
+
 ### Day 1
 Day 1 with Embrosia 
 #### Walking the horse in circles
