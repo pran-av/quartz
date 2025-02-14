@@ -5,10 +5,10 @@ tags:
 ---
 # Table of Contents
 
-| Topic                                        | Sub Topics |
-| -------------------------------------------- | ---------- |
-| [[#Creating a Next JS App]]                  |            |
-| [[#Installing Web SDKs within your project]] |            |
+| Topic                                        |
+| -------------------------------------------- |
+| [[#Creating a Next JS App]]                  |
+| [[#Installing Web SDKs within your project]] |
 
 ## Creating a Next JS App
 

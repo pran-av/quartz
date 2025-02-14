@@ -66,7 +66,35 @@ Based on the turning direction, move the neutral fist towards the direction.
 
 While moving the fist following technique to follow,
 1. Hold the reins in neutral position before taking a turn. Knuckles pointing down and thumbs closed.
-2. Based on the direction to move, rotate the same side fist outwards and then inwards parallel to the belly button.
+2. Look at the turning and halting spot, when the area is clear proceed with the turning steps
+3. Based on the direction to move, rotate the same side fist outwards and then inwards parallel to the belly button. Loosen the opposite rein before turning the horse.
 	1. The final position of fists should always be 90 degrees from the neutral position, that is the fists would rest on either side of the body
 	2. The elbow and fists should move in-line and parallel to belly button throughout the motion
 	3. The rotation and final resting point of the fists should be away from the body
+4. Gently move the fist based on the degree of turn.
+
+---
+#### Day 5 to 9
+Practice walking the horse
+#### Walking in Circles
+
+1. Circle has inner side and outer side - to walk the horse in circle the inner rein and outer rein will need adjustments.
+2. While walking the horse in circle, look at the diametrically opposite direction and ensure the track is followed.
+3. If we are following another horse, then look at the horse being followed. Act based on the actions of the forward moving horse.
+
+#### Walking on non-circular paths
+
+1. Look forward at the upcoming checkpoint where the horse will be taking a turn
+2. Half-halt if the horse is walking to fast, maintain the speed and track
+
+---
+#### Day 10 to 12
+Standing Up and Sitting Down while Trotting
+
+#### Rules for Standing Up and Sitting Down
+
+1. Leg position: The legs should be bent backwards inline with shoulder. 
+2. Rest the balls of the feet inside the stirrup
+3. While standing 50% body weight should be on feet and rest 50% on thighs
+4. Stand Fast and Sit Slow
+5. Half Standing 
