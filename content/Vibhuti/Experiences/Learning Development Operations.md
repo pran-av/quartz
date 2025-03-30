@@ -14,21 +14,36 @@ Built containers are registered with an hosting service, which can provide the i
 ### Deploying to Google Cloud
 
 1. Signup to GCloud
-2. Setup a Project
-3. Add billing information to the project
-4. Connect the Github repo in Cloud Build
-5. Enable basic functionalities required for deployments
-6. Authentication
+2. Authentication
 	1. Check for `gcloud auth list`
 	2. Verify Project config `gcloud config get-value project`
-	3. Setup Project ID `gcloud config set project travel-planning-api-2024`
-7. Run
+3. Setup a Project
+	4. `gcloud projects create travel-planner-api-2024 --name="Travel Planner API"`
+	5. `gcloud config set project travel-planner-api-2024`
+4. Add billing information to the project
+	1. Open project in google cloud to get a prompt to choose billing account
+5. Enable basic functionalities required for deployments
+	1. `gcloud services enable cloudbuild.googleapis.com run.googleapis.com sql-component.googleapis.com sqladmin.googleapis.com redis.googleapis.com secretmanager.googleapis.com vpcaccess.googleapis.com`
+6. Setup Database Instance (if database is being used)
+	1. Verify Instance `gcloud sql instances list`
+	2. Create Instance`gcloud sql instances create travel-planner-db --database-version=POSTGRES_15 --region=us-central1 --tier=db-f1-micro --storage-type=SSD --storage-size=10GB --root-password={password}`
+	3. Create user and set a password for the user `gcloud sql users create travel_planner --instance=travel-planner-db --password={password}`
+	4. Create database `cloud sql databases create travel_planner --instance=travel-planner-db`
+	5. Setup/Migrate database - can use alembic (Alembic is a versioning tool for databases - used in python projects)
+7. Setup Redis Instance (If rate limiting is required)
+		1. Create Instance `gcloud redis instances create travel-planner-redis --size=1 --region=us-central1 --redis-version=redis_7_0`
+		2. No password required if `transitEncryptionMode: DISABLED`
+8. Store Secret Keys in Secret Manager
+	1. `echo "your-secret-key-here" | gcloud secrets create travel-api-secret-key --data-file=-`
+9. Connect the Github repo in Cloud Build
+10. Create a Cloud Build
+11. Run the Build
 	1. ```gcloud run deploy travel-planning-api --source . --region us-central1 --platform managed --allow-unauthenticated --memory 2Gi --cpu 2 --min-instances 0 --max-instances 10 --port 8080 --timeout 300 --concurrency 80 --execution-environment gen2 --cpu-throttling --service-account travel-planning-api-sa@travel-planning-api-2024.iam.gserviceaccount.com```
-8. Post Deployment Health Check
-	1. `gcloud run services describe travel-planning-api --region us-central1 --format='value(status.url)'`
-	2. Root domain health check `curl -v https://{baseurl}/_ah/health`
-	3. Specific API health check `curl -X POST 'https://{baseurl}/api/v1/travel-plan/generate' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"destination": "New Delhi", "places_of_interest": "temples"}'`
-9. If Curl requests fail, we can run following commands to debug the issue,
+12. Post Deployment Health Check
+	2. `gcloud run services describe travel-planning-api --region us-central1 --format='value(status.url)'`
+	3. Root domain health check `curl -v https://{baseurl}/_ah/health`
+	4. Specific API health check `curl -X POST 'https://{baseurl}/api/v1/travel-plan/generate' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"destination": "New Delhi", "places_of_interest": "temples"}'`
+13. If Curl requests fail, we can run following commands to debug the issue,
 	1. Verify the latest build service URL
 		1. `gcloud run services describe travel-planning-api --platform managed --region us-central1 | grep URL`
 	2. Add `-v` to the curl to get verbose
