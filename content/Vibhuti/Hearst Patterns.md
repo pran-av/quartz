@@ -19,3 +19,6 @@ The relationships can be multiple in same set of concepts,
 - X which is a Y
 
 Reversed-hypernym (rhyper) is a relationship from specific to generic term. An algorithm built over Hearst Patterns identifies the hyponyms, it sometimes misses such relationships and hence has low-recall. Complex and ambiguous sentences are also a limitation for lexico-syntactic learning methods. However, this method is known to perform better than other distribution methods used to relate datasets.
+
+### Applications
+1. [[Named Entity Recognition (NER)]]
