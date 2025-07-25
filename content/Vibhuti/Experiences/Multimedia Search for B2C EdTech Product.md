@@ -18,6 +18,7 @@ As a result of above processes, there were some major pain points for the user:
 
 My team took this challenge - the **Search** feature came out as the best solution post discussions. In the rest of the case study, I will highlight the whys and hows of this challenge.
 
+![[il_search_challenge_maize.png|450]]
 # My Role
 
 I was assigned the Product Manager for this challenge.
@@ -26,12 +27,20 @@ My job was to ensure leadership alignments on the challenge, success metrics, an
 
 # Finalising the Solution
 
-Search came out as the best solution mainly through the discussions with product, technology, and customer success leadership. Secondary research on the existing products in the markets validated those discussions.
+Search came out as the best solution mainly through the discussions with product, technology, and customer success teams. Secondary research on the existing products in the markets validated those discussions.
 
 For this particular challenge only a small portion of useful inputs came through direct customer reviews and interviews.
 
 Search turned out to be a no-brainer without heavy primary research mainly because:
-1. Search was already etched as a core consumer behaviour for every digital application - EdTech or otherwise. Specifically since we are catering to young students, who are extremely proficient with applications, Search is one of those features that our user persona would involuntarily look for it.
-2. 
+1. Search was already etched as a core consumer behaviour for every digital application - EdTech or otherwise. Specifically since we are catering to young students, who are extremely proficient with technology, Search is one of those features that our user persona would involuntarily look out for.
+2. The searchable data and filtering categories for each type of media were vast. The ability to Search was a long term investment given that Content is on of the primary pillar of our industry and the amount of media will be increasing in multiples over the coming years.
 # Success Metrics
 
+Based on the problem to solve and the search solution - we devised following metrics to focus on.
+
+1. Conversion Rates: Users opting to Search -> Users searching for something -> Users engaging with content
+2. Time Spent on Navigation vs Time Spent on Learning
+3. Improvements in D30 Retention
+
+Conversion Rates were our North Star because,
+1. Time Spent and Retention are totally dependent on users finding Search easy to use and helpful in terms of output quality. So, CVR '$proportional$' Quality x Ease of Use
