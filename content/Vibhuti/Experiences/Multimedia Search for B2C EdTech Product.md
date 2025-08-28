@@ -3,7 +3,7 @@ date: 2025-07-13
 tags:
   - edtech
 ---
->[!warning] Case Study is being written and not fully complete yet. You can read the latest version below.
+>[!summary] Case Study is being written and not fully complete yet. You can read the latest version below.
 # The Challenge
 
 The Infinity Learn mobile and web apps have been in the market for over 2 years and more than 7 lakh learners have used it to access classes, practice, and self learning content.
@@ -42,5 +42,44 @@ Based on the problem to solve and the search solution - we devised following met
 2. Time Spent on Navigation vs Time Spent on Learning
 3. Improvements in D30 Retention
 
-Conversion Rates were our North Star because,
-1. Time Spent and Retention are totally dependent on users finding Search easy to use and helpful in terms of output quality. So, CVR '$proportional$' Quality x Ease of Use
+Conversion Rates were our North Star because -- Time Spent and Retention are totally dependent on users finding Search easy to use and helpful in terms of output quality.
+
+So, **CVR $\propto$ Quality of Results $\times$ Ease of Use**.
+
+# Quality of Content
+
+The quality of results in turn was dependent on **Context** and **Relevance** of the output data to input query. So if a user types "magnetism" in the search bar, our feature should be able to decide the best content to be displayed based on the user's grade, the exam they are prepping for, the subject they are intending to search for, and more such subjective understandings.
+
+Other than subjectively understanding each user, it was important to generally be aware on what each cohort of users would prefer in terms of say media of content, or language, or if a particular teacher is popular.
+
+The user persona were divided into multiple cohorts based on their grade-exam-board like combinations and nesting them into layers like subscribed or freemium usage.
+
+# Ease of Use
+
+Here the focus was on UX. The vision was wireframed and iterated with insights from the design lead and other members of the team. Once a common ground was visible, we went into designing the screens for all viewports.
+
+Some prominent discussions were on,
+- how to introduce the feature to users (onboarding)
+- how much search freedom is necessary (questions like whether to allow filtering/sorting and till what levels)
+- how the feature will differ when accessed from different dashboards within the app
+- how to autosuggest for character, word, multiple word inputs
+- how to link other features like an AI tool to ask specific Doubts
+and more such topics.
+
+The UI on the other hand was consistent with the design language and responsive for all devices in use.
+
+# Go to Market
+
+We launched the feature phase wise with the most engaging media 'Live Classes' first followed by Recorded Classes, Video Content, Assessment and so on.
+
+With each release we tracked metrics to identify unexpected behaviours and fix them.
+
+# Results
+
+The **user conversion to the root educational content increased between 5% to 15%** differing from dashboards to dashboards. Live Class dashboards experienced the best conversions.
+
+![[ILSearch_ux.mov|450]]
+# Mistakes we made
+
+1. The user cohorts could have been better managed to ensure more relevant outputs based on if the content was free or paid.
+2. The feature would have been more impactful if it was timed to launch when the MAUs were the highest.
