@@ -3,7 +3,17 @@ date: 2025-07-13
 tags:
   - edtech
 ---
->[!summary] Case Study is being written and not fully complete yet. You can read the latest version below.
+>[!summary] Summary
+>- Infinity Learn app used by 700k+ learners over 2 years—content in modules (live classes, self-learn, assessments)
+>- Problem: users struggle to find relevant content, waste time navigating, churn from frustration
+>- Product Manager (the author) led solution: align leadership, prototype with designer, gather feedback, define requirements, coordinate dev, test & measure
+>- Solution: implement Search feature—core user behavior, scalable investment as content grows
+>- Success metrics: conversion funnel (Search use → engagement), nav-time vs learning-time, Day-30 retention
+>- Conversion rate tied to quality of search results and ease of use
+>- Quality: results personalized by grade, exam board, subject, subscription status, language, teacher popularity
+>- Ease of use: iterative UX design, onboarding decisions, filtering/sorting controls, autosuggest, consistency, device responsiveness
+>- Launch phased by media type (live classes first, then recorded, video, assessments), tracked metrics per phase
+>- Results: conversion to core content up 5–15%, best performance in live‐class dashboards; mistakes: cohort handling could improve, launch timing misaligned with user activity peaks
 # The Challenge
 
 The Infinity Learn mobile and web apps have been in the market for over 2 years and more than 7 lakh learners have used it to access classes, practice, and self learning content.
