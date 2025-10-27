@@ -23,6 +23,7 @@ date: 2025-01-21
 | Roadmap                                                                      | An easy to integrate tool to share live roadmaps with users/customers                                                                                                            |
 | Ask me a Question                                                            | Dashboard for Founders or other high impact people to connect with their followers and answer questions in an organised fashion                                                  |
 | Whatsapp Agents                                                              | Identify and book badminton session based on weekend availabilities of all members                                                                                               |
+| Obsidian Multi Device Sync                                                   | Obsidian Pro feature                                                                                                                                                             |
 
 | People to meet                                                                | Goals                                                                                                                                    |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
