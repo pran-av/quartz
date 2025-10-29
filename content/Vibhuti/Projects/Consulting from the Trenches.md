@@ -85,6 +85,7 @@ excluding what is already present
 
 Phase 3
 1. Add content to Adventure Category
+2. 
 
 ### **Content Strategy**
 
@@ -107,7 +108,7 @@ Intelligent design - necessary to generate trust, confidence, creativity in the 
 
 ### **Lead Generation Strategy**
 
-**Phase 1**
+#### **Phase 1**
 Goal is to get quick clients and gain momentum/cash flows
 
 **Onboard Advisors:** Not actively working, but people with specific skillsets that will help me deliver solutions effectively. Advisors could have a quote.
