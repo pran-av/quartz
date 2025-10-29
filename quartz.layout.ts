@@ -1,7 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import SubscribeCTA from "./quartz/components/SubscribeCTA"
-import SubscribeIcon from "./quartz/components/SubscribeIcon"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -39,8 +38,7 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
-        { Component: Component.DesktopOnly(Component.ReaderMode()) },
-        { Component: SubscribeIcon() },
+        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
@@ -66,7 +64,7 @@ export const defaultListPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
-        { Component: SubscribeIcon() },
+        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
