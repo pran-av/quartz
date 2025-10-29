@@ -4,9 +4,9 @@ import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { clone } from "../util/clone"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
-import { QuartzPluginData } from "../plugins/vfile"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
 
@@ -15,11 +15,13 @@ interface RenderComponents {
   header: QuartzComponent[]
   beforeBody: QuartzComponent[]
   pageBody: QuartzComponent
+  afterBody: QuartzComponent[]
   left: QuartzComponent[]
   right: QuartzComponent[]
   footer: QuartzComponent
 }
 
+const headerRegex = new RegExp(/h[1-6]/)
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
@@ -27,8 +29,13 @@ export function pageResources(
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
-  return {
-    css: [joinSegments(baseDir, "index.css"), ...staticResources.css],
+  const resources: StaticResources = {
+    css: [
+      {
+        content: joinSegments(baseDir, "index.css"),
+      },
+      ...staticResources.css,
+    ],
     js: [
       {
         src: joinSegments(baseDir, "prescript.js"),
@@ -42,43 +49,34 @@ export function pageResources(
         script: contentIndexScript,
       },
       ...staticResources.js,
-      {
-        src: joinSegments(baseDir, "postscript.js"),
-        loadTime: "afterDOMReady",
-        moduleType: "module",
-        contentType: "external",
-      },
     ],
-  }
-}
-
-let pageIndex: Map<FullSlug, QuartzPluginData> | undefined = undefined
-function getOrComputeFileIndex(allFiles: QuartzPluginData[]): Map<FullSlug, QuartzPluginData> {
-  if (!pageIndex) {
-    pageIndex = new Map()
-    for (const file of allFiles) {
-      pageIndex.set(file.slug!, file)
-    }
+    additionalHead: staticResources.additionalHead,
   }
 
-  return pageIndex
+  resources.js.push({
+    src: joinSegments(baseDir, "postscript.js"),
+    loadTime: "afterDOMReady",
+    moduleType: "module",
+    contentType: "external",
+  })
+
+  return resources
 }
 
-export function renderPage(
+function renderTranscludes(
+  root: Root,
   cfg: GlobalConfiguration,
   slug: FullSlug,
   componentData: QuartzComponentProps,
-  components: RenderComponents,
-  pageResources: StaticResources,
-): string {
+) {
   // process transcludes in componentData
-  visit(componentData.tree as Root, "element", (node, _index, _parent) => {
+  visit(root, "element", (node, _index, _parent) => {
     if (node.tagName === "blockquote") {
       const classNames = (node.properties?.className ?? []) as string[]
       if (classNames.includes("transclude")) {
         const inner = node.children[0] as Element
-        const transcludeTarget = inner.properties["data-slug"] as FullSlug
-        const page = getOrComputeFileIndex(componentData.allFiles).get(transcludeTarget)
+        const transcludeTarget = (inner.properties["data-slug"] ?? slug) as FullSlug
+        const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
         if (!page) {
           return
         }
@@ -114,18 +112,24 @@ export function renderPage(
           // header transclude
           blockRef = blockRef.slice(1)
           let startIdx = undefined
+          let startDepth = undefined
           let endIdx = undefined
           for (const [i, el] of page.htmlAst.children.entries()) {
-            if (el.type === "element" && el.tagName.match(/h[1-6]/)) {
-              if (endIdx) {
-                break
-              }
+            // skip non-headers
+            if (!(el.type === "element" && el.tagName.match(headerRegex))) continue
+            const depth = Number(el.tagName.substring(1))
 
-              if (startIdx !== undefined) {
-                endIdx = i
-              } else if (el.properties?.id === blockRef) {
+            // lookin for our blockref
+            if (startIdx === undefined || startDepth === undefined) {
+              // skip until we find the blockref that matches
+              if (el.properties?.id === blockRef) {
                 startIdx = i
+                startDepth = depth
               }
+            } else if (depth <= startDepth) {
+              // looking for new header that is same level or higher
+              endIdx = i
+              break
             }
           }
 
@@ -180,12 +184,29 @@ export function renderPage(
       }
     }
   })
+}
+
+export function renderPage(
+  cfg: GlobalConfiguration,
+  slug: FullSlug,
+  componentData: QuartzComponentProps,
+  components: RenderComponents,
+  pageResources: StaticResources,
+): string {
+  // make a deep copy of the tree so we don't remove the transclusion references
+  // for the file cached in contentMap in build.ts
+  const root = clone(componentData.tree) as Root
+  renderTranscludes(root, cfg, slug, componentData)
+
+  // set componentData.tree to the edited html that has transclusions rendered
+  componentData.tree = root
 
   const {
     head: Head,
     header,
     beforeBody,
     pageBody: Content,
+    afterBody,
     left,
     right,
     footer: Footer,
@@ -209,9 +230,10 @@ export function renderPage(
     </div>
   )
 
-  const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
+  const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
+  const direction = i18n(cfg.locale).direction ?? "ltr"
   const doc = (
-    <html lang={lang}>
+    <html lang={lang} dir={direction}>
       <Head {...componentData} />
       <body data-slug={slug}>
         <div id="quartz-root" class="page">
@@ -231,10 +253,16 @@ export function renderPage(
                 </div>
               </div>
               <Content {...componentData} />
+              <hr />
+              <div class="page-footer">
+                {afterBody.map((BodyComponent) => (
+                  <BodyComponent {...componentData} />
+                ))}
+              </div>
             </div>
             {RightComponent}
+            <Footer {...componentData} />
           </Body>
-          <Footer {...componentData} />
         </div>
       </body>
       {pageResources.js
