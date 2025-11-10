@@ -13,7 +13,7 @@ tags:
 >- Quality: results personalized by grade, exam board, subject, subscription status, language, teacher popularity
 >- Ease of use: iterative UX design, onboarding decisions, filtering/sorting controls, autosuggest, consistency, device responsiveness
 >- Launch phased by media type (live classes first, then recorded, video, assessments), tracked metrics per phase
->- Results: conversion to core content up 5–15%, best performance in live‐class dashboards; mistakes: cohort handling could improve, launch timing misaligned with user activity peaks
+>- Results: **conversion to core content up by 5–15%**, best performance in live‐class dashboards; mistakes: cohort handling could improve, launch timing misaligned with user activity peaks
 # The Challenge
 
 The Infinity Learn mobile and web apps have been in the market for over 2 years and more than 7 lakh learners have used it to access classes, practice, and self learning content.
@@ -86,7 +86,9 @@ With each release we tracked metrics to identify unexpected behaviours and fix t
 
 # Results
 
-The **user conversion to the root educational content increased between 5% to 15%** differing from dashboards to dashboards. Live Class dashboards experienced the best conversions.
+>[!success]
+>The **user conversion to the root educational content increased between 5% to 15%** differing from dashboards to dashboards. Live Class dashboards experienced the best conversions.
+
 
 ![[ILSearch_ux.mov|450]]
 # Mistakes we made
