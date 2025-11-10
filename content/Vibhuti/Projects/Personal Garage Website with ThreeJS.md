@@ -1,5 +1,7 @@
 ---
 date: 2025-06-08
+tags:
+  - "#projects"
 ---
 Below is a sketch of how we might translate your life story, “collector” mindset, mechanical/space roots, and love for experimentation into a truly unique, interactive personal website. 
 

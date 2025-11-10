@@ -1,7 +1,6 @@
 ---
 date: 2023-12-26
 tags:
-  - vectors
   - mathematics
 ---
 

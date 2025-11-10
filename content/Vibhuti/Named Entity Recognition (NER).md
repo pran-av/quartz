@@ -1,7 +1,7 @@
 ---
 date: 2025-04-15
 tags:
-  - MachineLearning
+  - "#engineering"
 ---
 NER is an NLP technique where parts of unstructured data are classified into named entities (like place, time, people, organisation, date, event etc).
 

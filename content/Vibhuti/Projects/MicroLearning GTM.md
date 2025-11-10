@@ -1,5 +1,7 @@
 ---
 date: 2025-10-14
+tags:
+  - "#saage"
 ---
 
 > [!info] Related Writings

@@ -1,5 +1,7 @@
 ---
 date: 2025-02-08
+tags:
+  - "#projects"
 ---
 **Niche** - Early Founders + Deep Tech
 **Vision** - Solve problems with high velocity (speed and direction), most likely we will get a single shot

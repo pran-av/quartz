@@ -1,5 +1,7 @@
 ---
 date: 2025-04-07
+tags:
+  - "#philosophy"
 ---
 In general terms, _culture_ is often defined as a set of shared beliefs or practices within a society. However, culture can lead to both positive and negative outcomes. In today’s context, I believe the definition of culture should be evaluated not just by its prevalence, but by the **outcomes it produces**.
 

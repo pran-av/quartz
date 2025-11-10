@@ -1,7 +1,7 @@
 ---
 date: 2024-04-23
 tags:
-  - "#product"
+  - skillset
 ---
 Key things to look out for,
 1. The period of measurement aligned with development cycle and business goal. Each period should be identical to accommodate cyclic variations.

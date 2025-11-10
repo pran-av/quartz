@@ -1,5 +1,7 @@
 ---
 date: 2024-12-29
+tags:
+  - "#idea"
 ---
 Today's Use Cases of a phone app,
 1. Call someone specific who's contact you have already stored

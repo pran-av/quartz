@@ -1,5 +1,7 @@
 ---
 date: 2025-04-04
+tags:
+  - "#philosophy"
 ---
 I believe we often **expect without understanding when — and when not — to do so.**
 

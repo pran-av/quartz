@@ -1,5 +1,7 @@
 ---
 date: 2024-03-04
+tags:
+  - "#philosophy"
 ---
 I believe there's a difference between business vision and founders vision. 
 

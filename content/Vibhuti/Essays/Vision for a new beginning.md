@@ -1,5 +1,7 @@
 ---
 date: 2024-12-14
+tags:
+  - "#philosophy"
 ---
 the company I want to build will have following goals,
 

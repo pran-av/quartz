@@ -1,8 +1,8 @@
 ---
 date: 2025-10-06
 tags:
-  - programming
   - engineering
+  - "#book"
 ---
 ## Programming vs Coding
 

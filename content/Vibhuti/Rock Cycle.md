@@ -1,5 +1,7 @@
 ---
 date: 2024-12-16
+tags:
+  - "#geology"
 ---
 the elements of a rock cycle include,
 1. [[Igneous Rocks]]: Formed by cooled and crystallised magma

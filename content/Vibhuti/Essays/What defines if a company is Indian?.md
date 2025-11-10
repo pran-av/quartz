@@ -1,5 +1,7 @@
 ---
 date: 2025-09-29
+tags:
+  - "#philosophy"
 ---
 A few days back, Emergent Labs received a 200 crore investment making it another prominent company taking on global players like Lovable, Bolt, etc. One of the discussions post this investment was that an **Indian player** would be competing over the prompt to product AI coding tools market across the globe. The question arises can we truly call Emergent Labs to be an Indian company?
 

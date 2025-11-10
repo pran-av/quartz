@@ -2,6 +2,7 @@
 date: 2025-11-01
 tags:
   - book
+  - "#philosophy"
 ---
 Men Without Women is the first Murakami book I have actually read - I attempted Norwegian Wood but could not stick to it, maybe because it was a digital copy.
 

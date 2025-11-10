@@ -1,5 +1,8 @@
 ---
 date: 2025-01-19
+tags:
+  - "#raahi"
+  - "#product"
 ---
 ### Chain of Thoughts
 

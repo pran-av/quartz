@@ -2,6 +2,7 @@
 date: 2025-01-20
 tags:
   - aerospace
+  - "#physics"
 ---
 Jet propulsion along with rocket propulsion works on the principle of [[Newton's 3rd law of motion]], where we harness velocity for a projectile by throwing high speed matter in the opposite direction.
 

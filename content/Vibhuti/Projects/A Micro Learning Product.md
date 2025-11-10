@@ -1,8 +1,8 @@
 ---
 date: 2025-09-23
 tags:
-  - education
   - product
+  - "#saage"
 ---
 Most of the language learning apps focus on teaching an entire language - however the users on such apps are a mix of those who actually want to learn a language as a primary goal and those who want to learn it so they could travel, work, or have a specific type of conversation with locals.
 

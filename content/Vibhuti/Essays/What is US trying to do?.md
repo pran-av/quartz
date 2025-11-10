@@ -1,5 +1,7 @@
 ---
 date: 2025-09-04
+tags:
+  - "#observation"
 ---
 I think everything about the current US actions is about the US Dollar. It has inflated over 105% since 1996 (when US bonds were more preferred).
 

@@ -1,5 +1,7 @@
 ---
 date: 2025-03-30
+tags:
+  - "#philosophy"
 ---
 I left my job in January, and since then, I’ve had the time to truly understand myself — which is how I realised just how deeply lazy I am.
 

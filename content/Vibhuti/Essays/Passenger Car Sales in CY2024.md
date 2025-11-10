@@ -1,8 +1,7 @@
 ---
 date: 2025-01-13
 tags:
-  - automobile
-  - manufacturing
+  - "#teardown"
 ---
 In 2024, India witnessed a total of approximately **2.61 crore units** (26.1 million) sold in the automobile market, marking a **9.1% increase** from the previous year. Here’s a detailed breakdown of automobile sales by type:
 

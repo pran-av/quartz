@@ -1,5 +1,7 @@
 ---
 date: 2025-07-17
+tags:
+  - business
 ---
 Critical Mass of users or devices that keeps a network resilient. The resilience might further develop into the network experiencing faster growth or optimum productivity (based on the product and its development purpose).
 

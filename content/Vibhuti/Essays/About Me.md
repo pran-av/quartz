@@ -1,5 +1,7 @@
 ---
 date: 2025-06-05
+tags:
+  - "#observation"
 ---
 As a kid, I was very much into space - my first introduction to internet was searching through galaxies and information about space. I was also bit of a collector, Pokemon Cards and Stamps collection were some hobbies. Used to love playing games like being a librarian, I used to like playing with toy cars testing them in mud and emulating rainfall, would enjoy mixing fluids to experiment different mixtures and test their effects on an ant colony. To summarize, the curiosity and the want to experiment was something very core to me -- added to this the excitement to collect.
 

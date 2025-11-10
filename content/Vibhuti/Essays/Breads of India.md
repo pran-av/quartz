@@ -1,7 +1,7 @@
 ---
 date: 2024-03-17
 tags:
-  - commodity
+  - "#observation"
 ---
 Chappati/Bread: Made of Wheat and Maida
 Bhakri: Made of Jowar or Bajra

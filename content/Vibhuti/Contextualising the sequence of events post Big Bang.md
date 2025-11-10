@@ -2,6 +2,7 @@
 date: 2025-11-09
 tags:
   - cosmology
+  - "#physics"
 ---
 My current understanding of Big Bang Theory is very surface level - enough to make me think that such an event never occurred. Probably understanding it on much deeper level will give me more confidence.
 

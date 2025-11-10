@@ -1,5 +1,7 @@
 ---
 date: 2024-06-24
+tags:
+  - "#product"
 ---
 Citizen Stack is an effort to build opensource technology for effective and high output governance via collaboration between the public and the public servants.
 ### Goals:

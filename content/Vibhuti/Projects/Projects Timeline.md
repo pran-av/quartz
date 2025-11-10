@@ -2,7 +2,6 @@
 date: 2025-05-30
 tags:
   - projects
-  - portfolio
 ---
 This blog lists down a brief for all projects I have worked on,
 ### Raahi

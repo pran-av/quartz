@@ -1,9 +1,7 @@
 ---
 date: 2024-05-05
 tags:
-  - "#product"
-  - "#PRD"
-  - "#resume"
+  - "#idea"
 ---
 Every job description is a new puzzle. Every resume is a unique solution for that puzzle.
 ### Goals

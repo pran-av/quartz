@@ -1,7 +1,7 @@
 ---
 date: 2024-03-09
 tags:
-  - education
+  - "#philosophy"
 ---
 It might have been that long long time ago, education must have been a 'want'. I can't say the same for today, the collective social subconscious seems to consider education as a 'means'.
 

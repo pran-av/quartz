@@ -1,8 +1,7 @@
 ---
 date: 2025-09-23
 tags:
-  - factory
-  - productivity
+  - "#projects"
 ---
 I had a chance to visit the manufacturing facility of Dyna K Stampings in Pune. The factory has hot and cold rolled steel or aluminium as raw material which then goes through blanking, forming and piercing processes to create stamped casings for products like automobile brake assemblies.
 

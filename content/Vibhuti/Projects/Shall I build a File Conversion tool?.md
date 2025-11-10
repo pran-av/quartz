@@ -1,7 +1,7 @@
 ---
 date: 2025-11-09
 tags:
-  - "#product"
+  - "#idea"
 ---
 I was thinking of building something really quick like a single day build. And hence looking for an idea which has existing variants proving that it's a market fit.
 
@@ -26,7 +26,6 @@ I explored the File Conversion Product market hunting for such opportunity, the 
 If I have to build something here, I would have to tackle the niche of: Security, Speed and Quality. The User Persona might only be the professionals users doing bulk conversions - they might want APIs or auto-Queuing and Notification features.
 
 Downside: Heavy SEO dependent, SEO itself is a long term game. In that case a different GTM like: Chrome Extension, Mobile Apps, LLM Tools seem like better approaches to explore.
-
 
 # Success Stories
 

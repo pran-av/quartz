@@ -1,7 +1,7 @@
 ---
 date: 2025-08-23
 tags:
-  - policy
+  - "#teardown"
 ---
 Spent some time thinking on what should be the long term policies on handling the symbiosis of stray animals within our society.
 

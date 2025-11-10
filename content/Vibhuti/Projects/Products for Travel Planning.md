@@ -1,7 +1,8 @@
 ---
 date: 2025-05-29
 tags:
-  - travel
+  - "#product"
+  - "#raahi"
 ---
 This research goes through the current solutions in the market to simplify travel.
 

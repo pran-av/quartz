@@ -1,5 +1,7 @@
 ---
 date: 2025-01-29
+tags:
+  - "#teardown"
 ---
 My intention with this essay is to identify and maybe predict how space will evolve, what would be the pivotal sectors that drive major growth. We can look at people already working in those sectors, their technologies and then determine if something is missing.
 

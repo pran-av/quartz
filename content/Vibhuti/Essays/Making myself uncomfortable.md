@@ -1,5 +1,7 @@
 ---
 date: 2025-03-31
+tags:
+  - "#philosophy"
 ---
 In context of [[Be Uncomfortable]], to ensure that I achieve my goals, I should actively plan on making myself uncomfortable.
 

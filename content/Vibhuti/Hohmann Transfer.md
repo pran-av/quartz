@@ -1,10 +1,9 @@
 ---
 date: 2023-12-25
+tags:
+  - aerospace
+  - "#physics"
 ---
-
-
-#orbital_mechanics #physics
-
 A two burn mechanism to raise the orbit or lower the orbit of a vehicle within gravitational influence. The orbits in reference here are circular orbits. Following phases are involved:
 1. Departure Burn
 2. Coast Phase -- the vehicle is in elliptical trajectory in this case

@@ -1,7 +1,7 @@
 ---
 date: 2024-03-17
 tags:
-  - lending
+  - "#teardown"
 ---
 Lending products (loans, rental) are based on two vectors -- **control over usage** and **control over collections**.
 

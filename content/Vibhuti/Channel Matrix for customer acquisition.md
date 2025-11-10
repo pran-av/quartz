@@ -2,7 +2,7 @@
 date: 2024-04-10
 tags:
   - "#marketing"
-  - "#growth"
+  - "#skillset"
 ---
 Brian Balfour writes (https://brianbalfour.com/essays/5-steps-to-choose-your-customer-acquisition-channel) on how to identify which channel is best for a company's growth requirements. Key points:
 1. Most likely a single channel is going to provide the 70% growth

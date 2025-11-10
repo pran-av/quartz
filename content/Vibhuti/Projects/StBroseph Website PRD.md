@@ -1,7 +1,7 @@
 ---
 date: 2024-02-15
 tags:
-  - PRD
+  - "#product"
 ---
 ### Goals
 1. Raise an Issue - Download the App

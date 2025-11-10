@@ -1,5 +1,7 @@
 ---
 date: 2025-08-22
+tags:
+  - "#observation"
 ---
 If we look at the ages the human civilisation has gone through, 
 Early Stone Ages -> Neolithic -> Copper and Bronze Ages -> Iron Age -> Age of Philosophy -> Medieval Period -> Renaissance and Scientific Revolution

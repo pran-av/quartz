@@ -1,7 +1,7 @@
 ---
 date: 2024-10-19
 tags:
-  - RAG
+  - "#engineering"
 ---
 RAG was introduced in 2020 by Patrick Lewis et al. The original publication https://arxiv.org/pdf/2005.11401
 

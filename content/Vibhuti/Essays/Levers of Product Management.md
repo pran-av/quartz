@@ -1,7 +1,7 @@
 ---
 date: 2023-12-27
 tags:
-  - product
+  - "#philosophy"
 ---
 
 The levers of product management are within the skills of **observation, prediction, and delivery** 

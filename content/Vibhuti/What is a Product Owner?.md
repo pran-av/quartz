@@ -1,7 +1,6 @@
 ---
 date: 2025-11-07
 tags:
-  - "#product"
   - "#skillset"
 ---
 Product Owner is a role that comes up in relation with [[My non textbookish definition of Product Management|Product Management]] frequently.

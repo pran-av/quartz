@@ -1,5 +1,7 @@
 ---
 date: 2025-07-29
+tags:
+  - "#philosophy"
 ---
 Since humans have advanced enough to behold the power of Artificial Intelligence - it's likely a good time for humans to focus more on problems that need a '**System Change**' and leave the incremental developments (nitpickings, betterments, tweaks) to the agentic workflows.
 

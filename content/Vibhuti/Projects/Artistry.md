@@ -2,8 +2,6 @@
 date: 2025-09-06
 tags:
   - product
-  - software
-  - jobs
 ---
 # Archetypes
 

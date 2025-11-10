@@ -1,5 +1,7 @@
 ---
 date: 2023-09-10
+tags:
+  - "#engineering"
 ---
 
 1. [[Quantum Computing]]: Superposition and Entanglement Ref: https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/iet-qtc.2020.0026

@@ -1,9 +1,8 @@
 ---
 date: 2024-03-15
 tags:
-  - decisions
+  - "#observation"
 ---
-
 Each of us human individuals have our own brains to make decisions best for our body and soul. So when a group of humans want to reach to a single decision applicable for all - its naturally not as efficient as a hive mind insectoid queen doing the same for its insect junta.
 
 This is why we humans have devised artificial mechanisms to make decision making efficient. The most prominent tool being 'Hierarchies' - one person has the final call. Sorted.

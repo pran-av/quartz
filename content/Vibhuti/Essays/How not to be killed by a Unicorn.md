@@ -1,7 +1,7 @@
 ---
 date: 2025-04-09
 tags:
-  - business
+  - "#philosophy"
 ---
 A few months ago, I started building a product in the travel space — the core idea was to bring AI + Maps together to solve travel planning in a smarter way.
 

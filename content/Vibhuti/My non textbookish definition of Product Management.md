@@ -1,7 +1,6 @@
 ---
 date: 2025-11-05
 tags:
-  - "#product"
   - "#skillset"
 ---
 Product Management is the art of understanding the user archetypes, the personas within archetypes, each of their pain points and linking this data with market reality and technological capability to be able to **predict and deliver the products and services these users will be using in the future**.

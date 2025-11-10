@@ -1,8 +1,8 @@
 ---
 date: 2025-05-21
 tags:
-  - travel
-  - food
+  - "#product"
+  - "#raahi"
 ---
 # Context
 

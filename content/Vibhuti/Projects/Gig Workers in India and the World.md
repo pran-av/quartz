@@ -1,5 +1,7 @@
 ---
 date: 2025-08-22
+tags:
+  - "#idea"
 ---
 The core problem I want to solve is to give a lever to the labor force that is earning less than the country's per capita income. Further I want to restrict the market to only blue collar jobs as these are the ones which have lesser income growth compared to white collar. Which means their might be many white collar workers below the country's per capita income, we will not focus on those as my assumption is that necessary levers for them already exist and it might be a skill or information problem.
 

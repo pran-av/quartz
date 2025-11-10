@@ -1,5 +1,7 @@
 ---
 date: 2025-09-08
+tags:
+  - "#teardown"
 ---
 # Carbonated Beverages: Per Capita Consumption and Market Size by Country (2025)
 

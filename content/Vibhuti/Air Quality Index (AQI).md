@@ -1,5 +1,7 @@
 ---
 date: 2025-02-04
+tags:
+  - teardown
 ---
 AQI is the measure of air quality. Air has multiple pollutants like Particulate Matter (PM2.5 and PM10), Carbon Monoxide, Sulphur Dioxide, Nitrogen Dioxide and Ozone - the concentrations for each of these pollutants are measured individually and then the 'Individual' AQI is calculated by interpolation, the worst (highest) of the 'Individual' AQI is considered as the common AQI.
 

@@ -1,5 +1,7 @@
 ---
 date: 2025-01-01
+tags:
+  - "#philosophy"
 ---
 
 For as long as I can remember, I’ve been… ordinary. Just good enough to get by. I was fine with it, really—being an average kid, an average teenager. Back then, I didn’t even have a concept of mediocrity. It wasn’t something I questioned. But I also didn’t understand greatness, not until some part of my adult life.

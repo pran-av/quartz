@@ -1,11 +1,13 @@
 ---
 date: 2024-01-07
+tags:
+  - "#philosophy"
+  - "#skillset"
 ---
-
 1. **What To Sell:** Targets should not just be focused on incentives, what to sell also matter. More like, this incentive is this is sold. What is being sold should in turn align within the business strategy -- that selling this has a long term benefit.
 	1. SKU Management plays a good role of restricting 'what is sold'. But things like, unrealistic promises made during sales cannot be solved via OMS.
 	2. UI communication to the customer directly can help limit unrealistic promises cases, as the user is educated directly on features, etc. UI also helps sales make lesser mistakes while pitching.
-	3. **How to identify if the problem exists?** Sales targets are reached but NPS is low. NPS can be in form of survey feedbacks, calls, any form on communication from customer directly related to the post purchase services. #NPS
+	3. **How to identify if the problem exists?** Sales targets are reached but NPS is low. NPS can be in form of survey feedbacks, calls, any form on communication from customer directly related to the post purchase services. 
 2. **Incentives that promote longterm thinking:** Today's rejection can be tomorrow's success. More incentives on converting a rejection.
 	1. **How to identify if the sales team has short term mindset?** The company always needs X funnel to convert Y leads. The funnel input should not always be proportional to conversion growth.
 	2. What should be the relationship between funnel input and lead conversions? To Be Explored

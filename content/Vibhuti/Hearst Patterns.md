@@ -1,7 +1,7 @@
 ---
 date: 2025-02-12
 tags:
-  - MachineLearning
+  - "#engineering"
 ---
 Hearst Patterns are relationships between vocabulary and grammar (lexico-syntactic), these algorithms are used to develop ontological learning. Ontological learning refers to the use of existing data and their relationships to develop new ontologies to further refine what's known.
 

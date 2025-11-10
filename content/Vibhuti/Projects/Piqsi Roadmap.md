@@ -1,5 +1,8 @@
 ---
 date: 2025-06-12
+tags:
+  - "#product"
+  - "#saage"
 ---
 # Roadmap for Piqsi
 

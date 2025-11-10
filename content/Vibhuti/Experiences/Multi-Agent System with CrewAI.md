@@ -1,5 +1,8 @@
 ---
 date: 2025-09-26
+tags:
+  - "#product"
+  - "#saage"
 ---
 My plan is to first create a prototype on Google Colab to understand the structure towards making multi-agent systems.
 

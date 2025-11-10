@@ -1,8 +1,7 @@
 ---
 date: 2024-10-19
 tags:
-  - RAG
-  - education
+  - "#idea"
 ---
 If we think of education as an industry, it relies a lot on textual content, digitally recorded in the form of PDFs or other documents. As per conventional learning, students are expected to read and understand concepts to be further able to solve real world problems.
 

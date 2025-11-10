@@ -1,5 +1,7 @@
 ---
 date: 2025-01-03
+tags:
+  - "#philosophy"
 ---
 Following is my definition of what an 'Agentic AI' should be,
 1. **User Persona Adaptation:** The agent should recognise the specific user by their persona in context of the application, style of conversation, past conversational output and its inferences, user activity data and inferences derived from them.
