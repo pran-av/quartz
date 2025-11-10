@@ -1,7 +1,8 @@
 ---
 date: 2025-07-13
 tags:
-  - edtech
+  - infinitylearn
+  - "#product"
 ---
 >[!summary] Summary
 >- Infinity Learn app used by 700k+ learners over 2 years—content in modules (live classes, self-learn, assessments)

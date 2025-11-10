@@ -1,5 +1,7 @@
 ---
 date: 2025-11-10
+tags:
+  - "#skillset"
 ---
 From the context of [[My non textbookish definition of Product Management|Product Management]], my definition for stakeholder management is as below,
 
