@@ -6,6 +6,13 @@ tags:
 ---
 Maintaining the logs for thought process behind every feature pushed for [[Portfolio Website]]
 
+>[!todo] Upcoming Feature Plans
+>1. Add pixelated cat animation to onboard users onto the website - Emily the Cat - P1
+>2. Experiences: View as list in addition to thumbnails - P2
+>3. Experiences: Color-coded Tags to link projects with Company/Client - P0
+>4. Let the Cat drive subscriptions conversions
+>5. Integrate Emily with an LLM -- users can add tasks they want to hire for and Emily can suggest past experience
+
 ---
 ---
 ## Release v1.1.0
@@ -21,6 +28,10 @@ Maintaining the logs for thought process behind every feature pushed for [[Portf
 x
 ### November 12, 2025
 - Library and Antilibrary
+x
+### November 17,2025
+- Added Client and Role to Experience Type = "Work". Created separate JSON for all experience types
+- Add a pixel cat anime to bottom right of the website with "PAT ME" dialogue, on click user is shown a CTA to Subscribe Newsletter. Dialogue automatically reverts to default state is 10 seconds.
 
 ------
 ## Release v1.0.1
