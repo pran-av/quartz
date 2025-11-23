@@ -7,16 +7,23 @@ tags:
 Maintaining the logs for thought process behind every feature pushed for [[Portfolio Website]]
 
 >[!todo] Upcoming Feature Plans
->1. Add pixelated cat animation to onboard users onto the website - Emily the Cat - P1
->2. Experiences: View as list in addition to thumbnails - P2
->3. Experiences: Color-coded Tags to link projects with Company/Client - P0
->4. Let the Cat drive subscriptions conversions
->5. Integrate Emily with an LLM -- users can add tasks they want to hire for and Emily can suggest past experience
+>1. Experiences: View as list in addition to thumbnails - P2
+>2. Integrate Cat with an LLM - P3
+>3. An 'Available for Hire' flow - P1
+>4. Add Highlights to all content - P0
+>5. New Page: Ready to Use PRDs
 
 ---
 ---
 ## Release v1.1.0
 
+### November 17, 2025
+- **Role and Client Parameters for Work Experiences** - Separated all experience types into different JSONS and added client and role tags to work experiences. Both tags visible in UI above title.
+- **Added a Cat Pixel Animation** on lower left that on click asks user if they wish to subscribe to my weekly updates.
+- **Integrated Google Analytics** - used the same existing measurement ID as Garden subdomain, hopefully GA4 automatically gives us a segregated traffic measurement
+- Content Update: Added images and testimonials
+- Fix: Removed DS_Store from git cache
+x
 ### November 14, 2025
 - **Tabs instead of Filters for ExperienceType** (a user will not want to complicate their job by mixing two types into single list, which was happening in Filter functionality)
 - **Experience Card Design Revamp** (left- right layout for desktop and top - bottom for mobile and tablet; reduced the size of images for desktop, added ProjectDuration, Highlights, Learnings CTA, Prototype CTA)

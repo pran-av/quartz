@@ -3,6 +3,10 @@ date: 2025-11-21
 tags:
   - idea
 ---
+>[!note] Under Construction
+>Idea is still to be entirely explored
+
+
 I am trying to figure what might be the exact formula for X's payout calculations,
 
 ## Capped Cumulative Payouts
