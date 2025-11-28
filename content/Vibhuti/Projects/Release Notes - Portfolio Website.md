@@ -12,6 +12,7 @@ Maintaining the logs for thought process behind every feature pushed for [[Portf
 >3. An 'Available for Hire' flow - P1
 >4. Add Highlights to all content - P0
 >5. New Page: Ready to Use PRDs
+>6. Pokemon Card for iNaturalist Data - P3
 
 ---
 ---
