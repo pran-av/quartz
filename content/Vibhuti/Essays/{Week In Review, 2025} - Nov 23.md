@@ -25,3 +25,10 @@ tags:
 ## Thursday (Nov 27)
 - My Purpose page on Website. Live Roadmaps for visions.
 - Integrated analytics to all buttons
+
+## Friday (Nov 28)
+- Completed Architecture Plan 
+- Sketched wireframes for the MVP
+
+## Saturday (Nov 29)
+- I will try my best to Release Phase 1
