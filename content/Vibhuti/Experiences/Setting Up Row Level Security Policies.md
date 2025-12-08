@@ -168,4 +168,12 @@ The basic policies to implement can be limited to,
 
 ### Use Centralised Database Functions
 
-A function to fetch campaign ids can shorten the long queries in tables below the campaign hierarchy.
+A function to fetch campaign ids can shorten the long queries in tables below the campaign hierarchy. This is one of the ways to consolidate logics within different RLS policies at one place - and would help make the fetching faster.
+
+>[!note] Debugging RLS Issue on Supabase
+>
+>While I was writing this, I was also debugging my app because it was facing rejection from RLS policies for a particular table where an `INSERT` operation was required to be performed by an anonymous user.
+>
+>I am scripting down my experience of resolving it at [[Setting Up Row Level Security Policies]]. Head over there for more RLS stuff.
+
+
