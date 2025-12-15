@@ -1,0 +1,12 @@
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - file.backlinks
+      - file.tags
+      - date
+      - file.mtime
+      - file.links
+    columnSize:
+      note.date: 138
