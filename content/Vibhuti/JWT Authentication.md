@@ -13,4 +13,4 @@ The Diagram below describes how Javascript Web Token authentication works,
 - If valid, the Server processes the API request otherwise returns a 401 unauthorised error
 
 
-![[Pasted image 20250725233840.png|500]]
+![[ladder_jwt_auth.png|500]]

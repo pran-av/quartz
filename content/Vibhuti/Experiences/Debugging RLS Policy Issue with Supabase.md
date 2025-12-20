@@ -58,3 +58,11 @@ A good takeaway from this was: never judge the tokens by the way they look haha.
 There is a lot of scope to improve the current policies, many seem irrelevant to have and can be removed, but I am gonna push this down the priority and get going to allow stalling this project.
 
 Maybe I'll update this same blog later.
+
+## Time to finally fix RLS
+
+Okay - I am writing this section 1.5 weeks post I wrote the above sections. The application has been live for public use for more than a week now - a few bunch of beta testers tried it out. I am now fully focused on marketing, but there are two development blockers,
+1. APIs are slow
+2. Dashboard needs Onboarding
+
+Today I'll be focusing on making my Postgres DB and its APIs to make them faster. So the next part of our RLS series is over here: [[Making my Postgres 'DB operation' APIs faster]]

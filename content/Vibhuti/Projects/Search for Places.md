@@ -92,7 +92,7 @@ Once the rapid fire is over, the user can keep exploring experiences displayed o
 
 **Monetization:** Number of searches a day. 1 free search per day and then paid to use for the rest of the day. Can buy monthly for beta - later yearly and monthly on wider rollout.
 
-![[Pasted image 20250601203125.png|450]]
+![[bussin.png|450]]
 
 ## MVP Timelines
 
