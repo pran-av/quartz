@@ -49,7 +49,6 @@ Where it does not relate:
 	- Hydration: HTML static code on server side when rendered for functionality on client side, this process is called as hydration. 
 2. `export default` -  Each module can have a primary export which can be called in other modules by any name and without curly braces, only by referencing the module. 
 	- Example: `import AliasName from '@/app/home'`
-3. 
 
 
 

@@ -130,7 +130,38 @@ If in case I have enough usage to scale up,
 
 ## Security and Performance Warnings
 
-Now coming to the part where I think we will find our root causes. There are 40 Warnings in the performance advisor, at first glance it looks like we can optimise are existing SQL queries.
+Now coming to the part where I think we will find our root causes. There are 40 Warnings in the performance advisor, at first glance it looks like we can optimise our existing SQL queries.
 
+For each warnings I'll attempt running `EXPLAIN ANALYZE` before and after to see where we went wrong, on how big the problem was.
+
+`EXPLAIN (ANALYZE, VERBOSE, BUFFERS)`
+1. `ANALYZE` - realtime execution of query
+2. `VERBOSE` - adds details like column names at each step 
+3. `BUFFERS` - shows cache hits and misses
+4. only `EXPLAIN` - gives planned estimates without execution
 
 ### Running `Explain Analyze`
+
+>[!warning] Note before execution
+>`EXPLAIN ANALYSE` is not a test run, it actually executes the SQL operations as commanded, hence ensure to use measures so that data is not lost. Avoid execution of write queries on production. `EXPLAIN` on the other hand is *safe* from operations executing.
+
+To avoid data loss, wrapping all queries in `BEGIN` and `ROLLBACK` transactions.
+
+**Wrapping the auth.uid() function**:
+
+Warning says,
+"Table `public.widgets` has a row level security policy `widgets_select_own` that re-evaluates current_setting() or auth.uid() for each row. This produces suboptimal query performance at scale. 
+
+Resolve the issue by replacing `auth.<function>()` with `(select auth.uid())`."
+
+**Removing unnecessary joints in the RLS queries**:
+
+**Avoid exposing the Projects to public**
+
+**Use merged SELECT query for campaigns, case studies, client services, and widgets**:
+
+avoiding the use of `AND current_setting('app.project_url', true)` for time being, not sure if the client is configured to store project_url.
+
+
+
+

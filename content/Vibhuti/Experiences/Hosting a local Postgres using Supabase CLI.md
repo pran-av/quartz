@@ -1,0 +1,146 @@
+---
+date: 2025-12-27
+tags:
+  - engineering
+  - saage
+---
+Recently when I started a new project, I chose Supabase to manage my production Postgres instances. However post launching beta I felt the need of having a separate development database instance for testing.
+
+Duplicating an existing project in Supabase is possible, however it is only available for paying customers. Hence Supabase CLI was the best option I had to make the duplication as automatic as possible.
+
+And anyway there was no reason to have a "development" instance to be hosted on cloud instead of my own laptop. All I needed was *Docker Desktop* to create postgres containers that will hold all the supabase related images.
+
+Supabase also makes its Dashboard UI available locally - so I do not need to write SQL scripts in the CLI or my codebase. I could use the SQL Editor or manage policies and rpc functions from the Supabase locally hosted UI and then convert my changes into a migration file through a command.
+
+So in this writeup I'll try to consolidate all the actions and learnings from operating the Supabase CLI.
+
+## Step by Step Guide on using Supabase CLI
+
+What would you need,
+1. Know how to open a *Terminal*, basic `cd` and `ls` commands to take you to the correct locations.
+2. Download *Docker Desktop* for containerisation of your db instances.
+3. Download *Postman Application* so that you can test the database API
+
+This write up is meant to be experience sharing, you should refer to Supabase Documentation when you are setting up your own instance.
+
+Note: If you are using package managers - the commands will differ. I am using brew.
+
+### Step 1: Brewing the Installation
+
+In your terminal, go to your root directory and install the Supabase CLI so that it is available in all file systems below the root.
+
+`brew install supabase/tap/supabase`
+
+Now go visit your local repository for which local database instance has to be created and then run,
+
+`supabase init`
+
+Its important that you do this in your repo that already has git initialised. We want our local developments to be version controlled.
+
+A `supabase` directory is not created in the root of your repo with `supabase/config.toml` file added. The supabase local UI does not have all settings - so you would have to go through the config file to turn on the things you need.
+
+For instance, I turned on the Anonymous SignIns which was default `false` - this is required by my client code to operate the AnonymousSignIn function provided by supabase.
+
+The final part of the installation, within your repo,
+
+run `supabase start` - this will start creating a docker container, the setup would take a while for the first time as it will download all the images. I have atleast 14 GBs of supabase images in my docker at the moment.
+
+The docker will notify us in the terminal once the container is up and running, and it also shares a summary of all local URLs and instance keys.
+
+Here is a brief about them:
+1. The database is hosted on `http://127.0.0.1:54321` - which is the Supabase URL
+2. The `anon key` and the `secret` are shared for safe keeping. Anon keys are publishable while secret has high degree privileges and hence never exposed.
+3. The Supabase studio is hosted on `http://localhost:54323/` - going to this url will render the Supabase UI
+4. For testing Email based Auth locally we can use a Mailpit server which is hosted on `http://127.0.0.1:54324` . This was useful as I had Magic Link Authentication.
+5. The MCP server is at `http://127.0.0.1:54321/mcp` - an agentic IDE like Cursor can use this server to read/learn from the database
+6. Then there are APIs that can be accessed via the `54321` port. Note: Supabase which uses PostgREST default makes an API for every table and function we create having `anon` privileges.
+
+I copied the important parameters in my env files for safe keeping. These variables and paths will remain same for our container as we start, stop and reset the db in future.
+
+### Step 2: Link and Pull from Production
+
+Since I have to replicate my production db, my setup would not include any pushing to prod operations.
+
+Here's how I went with it:
+
+First, `supabase link --project-ref <your-project-id>` - it asks for a password to proceed. I didn't remember setting up a password, hence I navigated to the Supabase Prod project to look for an option to reset it.
+
+Once the link was successful, I proceeded with `supabase db pull` which is supposed sync my production with development. The `supabase db push` will do the opposite when our objective is to deploy.
+
+Here I ran into an error that said, my production and development migration history is not in sync or has some mismatch. Well that was obvious because until now there ain't existed the dev database.
+
+The solution to this was to remove or forget all migration history that production was holding. This command was not to revert or alter any schemas or code but to just have both databases with equal history. Though once this history is removed we need to create a new migration file that syncs both environments - so its important that the remote database continues to have schema/backup.
+
+To help me make sure this command worked fine, `supbase migration list` gave me a comparison list for prod and dev. I noted down the migration versions and for each one ran `DELETE FROM supabase_migrations.schema_migrations WHERE version = '<TIMESTAMP>';
+`
+Once both instance histories were in sync we ran the `supabase db pull` again. And it worked this time. The `supabase/migrations/` in my local repo now had a migration file.
+
+I spent some time reviewing over 900 lines of SQLs to get the vibe (lol). And then did a `supabase db reset`.
+
+What reset did was it deleted the entire local database and rebuilt the whole container using the new migration file. Post this I went to the Supabase Studio and hurray there were all the tables and functions and policies ready for me!
+
+### Step 3: Configuring and Testing
+
+I immediately fired my local client environment and began testing. Few setting changes here and there required me to visit the config.toml of supabase.
+
+I ran into an issue when I changed a redirect url and it would not take effect while I was testing. I wasted some valuable minutes just to make it work by repeating `supabase db reset`.
+
+So yes if you change settings and it won't take effect, do the reset.
+
+The rest of the testing thankfully went well.
+
+---
+
+I want to add a bit more points on how I am using the CLI and my new local db instance to deploy into production.
+
+I am strictly maintaining migration files in my version controlled repo and pushing them to remote repository while making sure no secrets are mentioned in any queries.
+
+I sometimes end up modifying queries in the Supbase Studio and I sometimes ask the Cursor Agent to write a migration file. So here's how to keep moving with this hybrid workflow:
+
+### Making Schema modifications in Supabase Studio
+
+The benefit of directly doing in the Supabase Studio is that I can check if a change is working or not. RLS policies are known for how nasty they are and I want to avoid 10 migration files per deployment.
+
+Hence I make the changes in the Studio -> Save them -> Make sure they work -> then officially generate a migration script.
+
+To do this, I run `supabase db diff`. However I think this command is not very reliable - the last time I tried it was very confused with what I actually changed in the Studio vs what I simply read. So I have to write them manually.
+
+Instead of the diff command we can also ask a Coding agent to identify and write the migration for latest changes using the MCP server. I believe that might be more accurate. But I have not tried yet.
+
+We do not need to do anything now other than deployment to production.
+
+### Making Schema modifications via my local repo
+
+The best way to do this is the using a coding agent with MCP so it has enough current context of the db and have them write the migration files with proper timestamped name.
+
+My agent often tried to edit past migration files - but it stopped when I told him a bunch of times to always create a new one.
+
+The downside of this method is that I can only test post running `supabase migration up` and if things don't work I have a bunch of migration files full or trial and error attempts.
+
+Longterm this is gonna hurt when deploying to production, there are two ways to not have a production heart attack,
+1. Manually create a new migration file and consolidate changes. Then mark `supabase migration repair <file version> --status reverted` to the old files and `supabase migration repair <new version> --status applied` to the new file.
+2. Ask a coding agent to do all the above
+
+I looked into another query which is for squashing `supabase migration squash`, but this only deals with schema changing queries and likely omits policy and function related schemas and drops. Also I did not find any way to squash only a select number of migration files - squashing seems to be default from baseline, which means we cannot use it post initial db deployment.
+
+Anyway, once I run `supabase migration up`, I make sure to create a new migration file to rerun this command next time.
+
+### Deploying to Production
+
+One thing that is recommended to be done often before deployment to production is to: run and test with `supabase db reset` often.
+
+This has helped me before as once I made changes in Supabase Studio and forgot to create a migration file via `supabase db diff -f <file-name>` and that led to a exposed table while testing. I wrote a new migration manually to fill in the changes and rerun the saviour that is `supabase db reset`.
+
+Once tested with all your heart, look at god above, make sure they are smiling and hit `supabase db push`.
+
+### What to deploy first: Database or Client
+
+The answer is pretty much understood to be - database first and client second. However this works when the database changes are not gonna break the client. And in my case they are going to.
+
+Probably next time I'll make sure to make it reverse compatible. The best option I got at the moment is to roll a "Scheduled Maintenance" page for a few minutes.
+
+If the app gets more real, I'll naturally look into setting up CI/CD via Github Actions or such services - both go or neither goes. And something which can also help me push to limited audiences first - stepwise rollout. Might as well add flags to the client so I can enable post surety.
+
+---
+If you enjoyed reading this do Subscribe, if you are on desktop you'll find the button on left side menu. And if you are on mobile the best option is clicking this [subscribe to my weekly updates](http://eepurl.com/i8vmEk)
+
