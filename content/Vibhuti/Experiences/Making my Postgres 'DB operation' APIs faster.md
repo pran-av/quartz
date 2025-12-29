@@ -359,6 +359,5 @@ We can manage slow GET requests in many ways. But when it comes to POST, even if
 Latency should have been the first thing I should have checked before diving into infrastructure and RLS and RPC functions - but it's fine because those needed optimisations as well. I reduced a lot of overhead from complex policies and created functions that surely contributed in some 100 ms savings.
 
 >[!success] **Metrics Scored**
->1. APIs are now **3x Faster**
->2. **70% Reduction** in Latency
->3. LCP improved by ~**1.5 seconds**
+>APIs are now **3x Faster** because of **70% Reduction** in Latency
+
