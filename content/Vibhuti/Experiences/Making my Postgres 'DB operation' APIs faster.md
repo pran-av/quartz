@@ -147,21 +147,218 @@ For each warnings I'll attempt running `EXPLAIN ANALYZE` before and after to see
 
 To avoid data loss, wrapping all queries in `BEGIN` and `ROLLBACK` transactions.
 
-**Wrapping the auth.uid() function**:
+I tried running Explain Analyze a few times but frankly did not receive many answers. The output had a lot of material which required a learning curve. Hence I simply started implementing what the Advisory mentioned to fix.
+
+If the APIs do not speed up even after my below fixes I will ultimately have to learn everything about Explain Analyze and figure the root issues.
+
+For now, lets go ahead.
+
+### Wrapping the `auth.uid()` function in Select
 
 Warning says,
 "Table `public.widgets` has a row level security policy `widgets_select_own` that re-evaluates current_setting() or auth.uid() for each row. This produces suboptimal query performance at scale. 
 
 Resolve the issue by replacing `auth.<function>()` with `(select auth.uid())`."
 
-**Removing unnecessary joints in the RLS queries**:
+From a bit of digging, I understood that this is a caching issue. When we said `... WHERE user_id = auth.uid()` - the query fetches user id and runs `auth.uid()` every single time. But `auth.uid()` is going to remain constant for that user.
 
-**Avoid exposing the Projects to public**
+So wrapping it in select assigns it to an object which can be cached. Meaning `... WHERE user_id = (select auth.uid() as uid)`
 
-**Use merged SELECT query for campaigns, case studies, client services, and widgets**:
+✅ Done
 
-avoiding the use of `AND current_setting('app.project_url', true)` for time being, not sure if the client is configured to store project_url.
+### Removing unnecessary joints in the RLS queries
 
+When the ownership chains are too big, that leads to multiple table joins which end up adding bottlenecks to the RLS policies. Architecture can be designed to avoid long chains. In my instance the biggest chain was `projects -> campaigns -> client_services -> case_studies`.
 
+So the policies specific to case studies are going to take more time than others. I could have had case studies assigned directly to users. Users can then map these case studies to any campaigns they want. This avoids creation of case studies or duplication of them.
 
+This would have been a much better architecture and made our APIs faster.
 
+So for next time, I'm gonna have this rule of thumb,
+
+>[!quote] When chains become longer, put more time thinking if that needs to be the way ahead.
+
+❌ Deprioritised
+
+While redoing the architecture was not an option. There was another option where we would create internal database functions that would be non blocking and faster in terms of execution and call them in RLS policies.
+
+The functions were made in a separate non publicly exposed schema within Supabase - however I have kept them aside for future use if speed problems persist.
+
+Note: We can call non publicly exposed functions within the database, but if we have to call functions in client we need to make these functions in an exposed schema like the `public`.
+
+There are ways to make this functions secure which I will cover in a separate write up.
+
+### Un-Complicate the Mess
+
+Beyond the ownership chains, my RLS policies had a lot of other things going on. For instance: The projects of a users are ownership only, so the policy was pretty simple saying `user_id = (select auth.uid as uid)`.
+
+When it went onto campaigns, the requirement was that ACTIVE campaigns be visible to everyone while those with other enums are only for owners. And then there's an additional requirement that no user should be able to run a `select * campaigns` and same with other tables - even if it might be just for user published data - I did not want to expose the count and a list of all campaigns and case studies with its data on my platform.
+
+Hence I decided let's keep RLS policies only for managing ownership while we will offload the rest of the logic into RPC functions.
+
+And there was another issue - that the existing complicated RLS policies were not working as expected either. Since the policies work with the privileges of the one requesting the data - any upstream tables that are restricted fail the policy execution which then returns a false and data is rejected.
+
+So owners were able to view all of their data but non owners would lead into some query execution uncertainty. This was another reason we had to go with RPC functions which are Security Definer functions that run with the privileges of the database owner - meaning queries won't half execute.
+
+✅ Converted RLS to only focus on Ownership
+
+### Implementing the public RPC functions
+
+My SELECT, INSERT, UPDATE, DELETE operations for each table have an ownership clause. And along with this tables campaigns, client services, case studies, and widgets have a second permissive SELECT clause marked as `USING (false)`. For leads the INSERT operation has two separate RLS with one marked as `WITH CHECK (false)`
+
+The Client Side code instead uses `public.rpc()` to fetch campaigns and other tables. And same happens with Lead Insert where an rpc function is called.
+
+The RLS policies were failing to execute for lead insert operation - but now with rpc function everything works as expected.
+
+✅ Created secure RPC functions and integrated with Client
+
+>[!warning] Risks of public RPC functions
+>Your anon key is naturally exposed in the JS chunks in Dev Tools hence anyone who gets their hands on it would be able to execute your public RPC functions. Hence there are following security aspects to note:
+>1. RPC functions are default available for EXECUTE for `public` roles. REVOKE access for public in the same execution you create RPC functions
+>2. GRANT access to authenticated only, granting access to anon means execution with anon key is possible.
+>3. Mark functions that give constant outputs as STABLE in their definition
+>4. While defining the functions, explicitly define the `search_path = ''` to avoid hack attempts.
+
+## Diving into `Explain (Analyze, Buffers)` for real now
+
+My production APIs are still averaging 2s as server response time. No above fixes have led us to achieve the goldilocks of 300 ms. Hence I have to unfortunately dive deeper into this topic. Let's first understand the parameters we should look out for:
+
+Below is a table with data from a running explain analyze buffers for `projects` table. Note: Running `select * from <table_name>;` leads to the execution RLS policy when we have set the proper local roles - we do not need to add the exact RLS query in our explain analyse query.
+
+1. **Shared Hit and Shared Read** 
+	- Shared Hit = 247. Shared Read = 0
+	- Minimise Shared Hit + Shared Read sum 
+	- Shared Hit means data is available in Cache. Shared Read mean data is being pulled from I/O which is expensive.
+	- High Shared Reads means Indexes are required
+	
+2. **Seq Scan or Index Scan? Judge it with Rows Removed**
+	- The planner decides the most optimum way to go ahead
+	- Whatever method the planner selects we can look out for **Rows Removed** to judge the efficiency, we want the rows removed to be as low as possible
+	
+3. **Loops** 
+	- If we are using functions like auth.uid(). Loops tells us if the function is being run for each row or not.
+	- STABLE functions meaning those that return same value for a fixed input argument, need not have to be run for each and every row.
+	- Running it once and caching should be the expectation.
+	
+4. **Planning + Execution Time** 
+	- The final North Star metric the Planning + Execution time for our example comes out to 11.3 ms. Which I think is efficient.
+
+| QUERY PLAN                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------- |
+| **Seq Scan** on projects  (cost=0.00..2.12 rows=1 width=241) (actual time=3.182..3.188 **rows=7 loops=1**) |
+| Filter: (ANY (user_id = (hashed SubPlan 6).col1))                                                          |
+| **Rows Removed** by Filter: 9                                                                              |
+| Buffers: **shared hit**=2                                                                                  |
+| SubPlan 6                                                                                                  |
+| ->  Result  (cost=0.07..1.10 rows=1 width=16) (actual time=1.998..2.000 **rows=1 loops=1**)                |
+| One-Time Filter: ((InitPlan 5).col1 = (InitPlan 4).col1)                                                   |
+| Buffers: **shared hit**=1                                                                                  |
+| InitPlan 4                                                                                                 |
+| ->  Result  (cost=0.00..0.03 rows=1 width=16) (actual time=0.004..0.005 **rows=1 loops=1**)                |
+| InitPlan 5                                                                                                 |
+| ->  Result  (cost=0.00..0.03 rows=1 width=16) (actual time=0.733..0.734 **rows=1 loops=1**)                |
+| ->  **Seq Scan** on users  (cost=0.07..1.10 rows=1 width=16) (actual time=1.256..1.257 **rows=1 loops=1**) |
+| Filter: (user_id = (InitPlan 4).col1)                                                                      |
+| **Rows Removed** by Filter: 9                                                                              |
+| Buffers: **shared hit**=1                                                                                  |
+| Planning:                                                                                                  |
+| Buffers: **shared hit=247**                                                                                |
+| **Planning Time: 7.843 ms**                                                                                |
+| **Execution Time: 3.329 ms**                                                                               |
+
+### What is a SubPlan and an InitPlan?
+
+An Init Plan runs once and the output is cached for use. Exactly how we expect STABLE rpc functions in RLS to be executed. The number of rows hence does not matter the time taken to execute Init Plans as they run once.
+
+SubPlan runs multiple times for each and every row. Its better to run a SubPlan on an Index over a Sequence. But if the table is small the planner might decide to go ahead with a Seq Scan + SubPlan.
+
+Look out for index names when the tables become big to ensure they are being used.
+
+**Note:** The numbering for SubPlan and InitPlan are labels for identification. They are not sequential meaning 1, 2, and 3 are missing because they are hidden - those might have been permission scans or internal database queries.
+
+### Summarising Explain Analyze Outputs
+
+| Role          | Operation | Table           | Total Time | Hits + Reads | Comments          |
+| ------------- | --------- | --------------- | ---------- | ------------ | ----------------- |
+| authenticated | SELECT    | projects        | 11.3 ms    | 247 + 0      | 2 seq with init   |
+| authenticated | SELECT    | campaigns       | 16 ms      | 311 + 0      | 3 seq with init   |
+| authenticated | SELECT    | client services | 11 ms      | 453 + 0      | ~4 seq with init  |
+| authenticated | SELECT    | case studies    | 18 ms      | 508 + 0      | ++ 1 nested loops |
+| authenticated | SELECT    | leads           | 30 ms      | 479 + 0      | ++ 2 nested loops |
+| authenticated | INSERT    | projects        | 1.75 ms    | 178 + 0      | -                 |
+| authenticated | INSERT    | campaigns       | 9 ms       | 230 + 0      | -                 |
+| authenticated | INSERT    | client services | 9 ms       | 398 + 0      | -                 |
+| authenticated | INSERT    | case studies    | 23 ms      | 462 + 0      | -                 |
+| authenticated | INSERT    | leads           | 17 ms      | 403 + 0      | -                 |
+All our core database operations are likely below 30 ms and still we have a 2 s of Time To First Byte (TTFB). Why?
+
+## Understanding Time To First Byte (TTFB)
+
+**TTFB** is roughly the server processing time + communication + routing + queuing + content download. This metric further affects the LCP and FCP scores.
+
+The following operations add up to a TTFB time, and these can be tracked for all APIs via the Dev Tools waterfall chart in Timing section.
+
+![[devtools-timing-chart.png|550]]
+
+The chart includes,
+1. Queuing: Tasks are picked by priority
+2. Stalled: Technical factors can lead to stalling
+3. DNS Lookup: Browser figuring the IP address under the readable names of our domains
+4. Initial Connection + Proxy Negotiation: TCP handshake and proxy stuff I do not know a lot about
+5. Request Sent: Request sent to our server
+6. Service Worker Preparation + Request: Browser configures a worker
+7. **TTFB** (Waiting for server response): Network Latency + Auth/API Overheads + Planning Time + Execution Time
+8. Content Download: Downloading images and data to finally render the page
+
+We know that our Planning + Execution Time for database operations is under 30 ms. So there are two issues possible:
+1. The Network Latency is high
+2. Auth/API Overheads exists
+
+I went to Supabase API Logs and the latency is kinda a very real problem. The APIs are executing with Meta data mentioning the city as Ohio. 
+1. Our frontend is requesting from `us-east-2`
+2. Me the user is connected with the frontend from Pune which is same as Mumbai, that means `ap-south-1`
+3. And our Supabase db is hosted at Mumbai `ap-south-1`
+
+That means every request I do to create a project, we go through a continental jump. Pune -> Ohio -> Mumbai -> Ohio -> Pune (sending packets under the sea and stuff).
+
+User to Client -> almost 250 ms
+Client to Database -> 250 ms
+Database to Client -> 250 ms
+Client to User -> 250 ms
+
+There comes our **1 second for a single request**! Now if there are going to be multiple requests we are done.
+
+We cannot have servers everywhere the Users are but we should atleast reduce the Client and Database Communication latency. If database and client are both in Mumbai then I save half the latency for a US user and for an Indian user it will take even less time.
+
+Let's look for solutions.
+
+### Move either Supabase or Netlify
+
+I'll have to create a new project in Supabase and migrate the entire production database. Not happening. And Netlify has a default version for free users, which is `us-east-2` - Ohio!
+
+Even if I pay Netlify they do not have a server in Mumbai. It would be either Singapore or Tokyo then.
+
+So redeploying onto Vercel is the only best option as it allows switching regions.
+
+Here's are the post Vercel deployment improvements:
+
+| **API**           | **TTFB** |
+| ----------------- | -------- |
+| GET projects      | 3.8 s    |
+| POST projects     | 625 ms   |
+| POST campaigns    | 700 ms   |
+| GET campaigns     | 300 ms   |
+| POST services     | 650 ms   |
+| POST case studies | 535 ms   |
+| POST publish      | 510 ms   |
+| LCP Score         | 2 s      |
+While our average TTFB earlier was 2 seconds - we are seeing improvements everywhere. GET Projects is likely high because it is trying to fetch all projects as once. I'll have to add lazy loading for that operation and pagination.
+
+We can manage slow GET requests in many ways. But when it comes to POST, even if I put a loader or some other graphic, it would have sustained that slow and patchy feeling.
+
+Latency should have been the first thing I should have checked before diving into infrastructure and RLS and RPC functions - but it's fine because those needed optimisations as well. I reduced a lot of overhead from complex policies and created functions that surely contributed in some 100 ms savings.
+
+>[!success] **Metrics Scored**
+>1. APIs are now **3x Faster**
+>2. **70% Reduction** in Latency
+>3. LCP improved by ~**1.5 seconds**
