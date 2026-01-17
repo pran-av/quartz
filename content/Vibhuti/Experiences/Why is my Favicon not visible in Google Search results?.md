@@ -168,7 +168,6 @@ In Next JS docs I found a special reference to twitter metadata using `twitter-i
 
 Well - however I have dynamic twitter cards for certain links. So I am not sure how `twitter-image` is going to cut it for me. This is not likely going to be a side mission, I will cover this separately.
 
-
 # Testing
 
 >[!note] PS
@@ -180,3 +179,8 @@ So let's deploy and see what happens.
 
 ![[icons-dev-test.png|450]]
 
+# Updates
+
+Its 17th of January today - yesterday (finally) the twitter card started showing itself on quoting the website URL on the platform. I have made no changes since I added twitter OG tags - not sure why twitterbot took almost a week.
+
+Bad News: The Favicon in Search Results still show the globe icon. The Search Console has correctly indexed www domain as canonical - but this has not resolved any favicon issue. I have explored other website and have not observed anything different in terms of code or syntax. Hence I am going to just wait more.
