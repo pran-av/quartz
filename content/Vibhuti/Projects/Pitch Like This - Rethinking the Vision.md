@@ -9,7 +9,7 @@ So some form of a conversion tool for personal websites. The moment I got the id
 
 # Highlights from my initial plan
 
-"ini the beginnin", I was building for a market which was individuals having their own website with more than 1000 unique visitors per month - these individuals can be job seekers or consultants.
+"ini the begin-nin", I was building for a market which was individuals having their own website with more than 1000 unique visitors per month - these individuals can be job seekers or consultants.
 
 Quarter way through the build I started realising that the market might just be too niche. Niches are surely great for products that have proved PMF for that niche, but otherwise building an entire new product should have a wider scope - so that a niche can be funnelled onto organically. 
 
@@ -82,7 +82,7 @@ So Overall the AOV seems to be 1500 INR to 3000 INR.
 
 1.5 lakh monthly paying customers. Less than 5% conversions when compared to MAU.
 
-The conversions are actually bad for B2C. The entire Naukri product is simply a database - traffic, search, supply and demand that is what they have as moat. And every technology service is an add on. 
+The conversions are actually bad for B2C. The entire Naukri product is simply a database - traffic, search, supply and demand that is what they have as moat. And every technology service is an add on.
 
 
 ## Why can make it marketable

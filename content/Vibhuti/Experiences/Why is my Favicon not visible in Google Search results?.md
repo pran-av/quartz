@@ -1,5 +1,6 @@
 ---
 date: 2026-01-09
+last-modified: 2026-01-23
 ---
 Well I saw the following post of X, there have been many favicon jokes and issues atleast in my feed lately.
 
@@ -16,7 +17,7 @@ But its not. When I query "pitch i like this" in google, that's when google deci
 Anyway, I do have the favicon implemented in my NextJS project. And this is how it is implemented:
 1. My `/public` has the logo named as `pitchlikethis-logo.svg`.
 2. And then the `/app` - `layout.tsx` uses this graphic file via the following implementation
-```
+```ts
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ When I check the `icons` section, our use is accurate, only difference being tha
 
 I have already deployed this implementation with `.svg` and if we look within the devtools, it seems like NextJS has successfully converted `<meta>` and `<link>` tags for us.
 
-```
+```html
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,7 +99,7 @@ In addition to above icons,
 `<link rel="manifest" href="/manifest.json">` - Nothing specified in NextJS docs on how to add this so adding manually as per MDN docs.
 
 I'll be adding a web manifest like this to my `/app` folder, Next JS specifies to add this in the app root.
-```
+```ts
 {
 	"name": "Pitch Like This",
 	"short_name": "PLT",
@@ -151,7 +152,7 @@ Cases where google search may **not** show the favicon:
 
 Browsers would likely use the `icon0.png` and `icon1.svg`. `apple-touch-icon` (which we set earlier via the object) seems to be the shortcut for iOS web apps while `apple-icon` will be used by Safari.
 
-So to summarise my `/app` root not contains:
+So to summarise my `/app` root now contains:
 ```
 -- favicon.ico (looks blur and not good honestly)
 -- icon0.svg (hope the google search uses this)
@@ -181,6 +182,49 @@ So let's deploy and see what happens.
 
 # Updates
 
+## 17th January, 2026
+
 Its 17th of January today - yesterday (finally) the twitter card started showing itself on quoting the website URL on the platform. I have made no changes since I added twitter OG tags - not sure why twitterbot took almost a week.
 
 Bad News: The Favicon in Search Results still show the globe icon. The Search Console has correctly indexed www domain as canonical - but this has not resolved any favicon issue. I have explored other website and have not observed anything different in terms of code or syntax. Hence I am going to just wait more.
+
+## 23rd January, 2026
+
+The favicon is finally visible in the Search Listings!
+![[plt-search-favicon.png|550]]
+
+Another Observation: My portfolio website - where I did not make any changes I listed above also now displays the favicon - which was not visible earlier while writing this article for the first time.
+
+The configuration for this website rather uses a `.svg` as an icon.
+
+```
+export const metadata: Metadata = {
+  title: 'Pranav Mandhare',
+  description: 'Pranav\'s Portfolio',
+  generator: 'Pranav Mandhare',
+  icons: {
+    icon: '/sisyphus.svg',
+    shortcut: '/sisyphus.svg',
+    apple: '/sisyphus.svg',
+  },
+}
+```
+
+It seems like this fix might just be from Google's end.
+
+![[pranav-mandhare-search-favicon.png|550]]
+
+So, I'll term the above exploration as a good to have or best engineering practice. If your website already has a favicon visible in google search and you do not need a manifest for web apps - then you can as well skip the above modifications.
+
+# Conclusion - Engineering best practices for favicons
+
+1. **Dynamic Methods**: Use the recommended methods from your framework (if any): NextJS has two methods - either use a Metadata object which automatically renders the html tags in the head section of the pages. Or manually add an icon file to the root of your project. The use of dynamic rendering I believe is always the best option.
+2. **Tools**: Use tools like [Google Search Console](https://search.google.com/search-console/about) to ensure the pages are indexed post addition of favicon. To test favicons use [Favicon Checker](https://realfavicongenerator.net/favicon-checker). For OG images, use [OG Image Checker](https://www.opengraph.xyz/). However note that these always may not be accurate - because I had correct implementation and still X and Google bots did not have my collaterals.
+3. **Fallbacks and Dimensions**: Favicons should have fallbacks where `favicon.ico` is the default that search engine lookout for, then fallback to `image0.png`, and as a last fallback `image1.svg`. The ico file should have a maximum dimension of 48x48px.
+4. **Apple WebApps**: Add apple-icons specifically so that any webapps saved on iOS devices as well as Safari renders the favicons for the website. For apple, only use png formats.
+5. **Android WebApps**: Use a `manifest.json` file in the root so that any Android devices that saves the application as a webapp has a splash screen logo as well as app icon. The icons should be of 192x192 and 512x512 dimensions.
+6. **Other Metadata**: Ensure all titles, descriptions, canonical urls are declared in the metadata alongside the favicons.
+7. **OG Metadata**: Ensure all the OG tags are in place - this includes title, description, images, site url. Twitter requires a separate declaration. Note: I had an issue where twitterbot was not loading my OG image in X posts - and apparently is resolved as well.
+
+---
+If you enjoyed reading this do Subscribe, if you are on desktop you'll find the button on left side menu. And if you are on mobile the best option is clicking this [subscribe to my weekly updates](http://eepurl.com/i8vmEk)
