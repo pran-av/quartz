@@ -1,6 +1,5 @@
 ---
 date: 2026-01-09
-last-modified: 2026-01-23
 ---
 Well I saw the following post of X, there have been many favicon jokes and issues atleast in my feed lately.
 
