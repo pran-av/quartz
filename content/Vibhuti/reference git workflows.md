@@ -2,6 +2,7 @@
 date: 2025-12-28
 tags:
   - "#engineering"
+title: Git Workflows for Everyday Reference
 ---
 ## Deployment from `dev` to `prod` (Team safe)
 

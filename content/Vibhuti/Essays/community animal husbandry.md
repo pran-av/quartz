@@ -1,4 +1,5 @@
 ---
+title: Husbandry Policy for Community Animals in India
 date: 2025-08-23
 tags:
   - "#teardown"

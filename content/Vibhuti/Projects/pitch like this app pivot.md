@@ -2,10 +2,11 @@
 date: 2026-01-17
 tags:
   - product
+title: Pivot Ideas for Pitch Like This
 ---
 I started building [Pitch Like This](www.pitchlikethis.com) because I wanted a tool for my portfolio website where people can click on a widget which says something like "Available for Hire" and then a new tab opens up with all services I offer and people can explore case studies for each service - and then contact me if anything clicks.
 
-So some form of a conversion tool for personal websites. The moment I got the idea, I scribbled my plans over here [[Building a better 'OpenToWork' feature]].
+So some form of a conversion tool for personal websites. The moment I got the idea, I scribbled my plans over here [[open to work website widget]].
 
 # Highlights from my initial plan
 
@@ -84,8 +85,7 @@ So Overall the AOV seems to be 1500 INR to 3000 INR.
 
 The conversions are actually bad for B2C. The entire Naukri product is simply a database - traffic, search, supply and demand that is what they have as moat. And every technology service is an add on.
 
-
-## Why can make it marketable
+## How can we make it marketable
 
 I think 
 

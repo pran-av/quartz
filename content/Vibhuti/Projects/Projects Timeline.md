@@ -36,5 +36,5 @@ Role: Product Manager
 **Features**
 1. Designing a weightage system to display classes, videos, and other media based on priority.
 2. Monetization integrations
-### Order Management and Transaction Tracking
+
 

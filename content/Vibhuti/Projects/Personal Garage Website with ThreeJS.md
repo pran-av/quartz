@@ -5,6 +5,9 @@ tags:
 ---
 Below is a sketch of how we might translate your life story, “collector” mindset, mechanical/space roots, and love for experimentation into a truly unique, interactive personal website. 
 
+>[!warning] Includes AI Generated Elements
+>This content was an attempt to write a PRD to develop a unique website for my portfolio, and in the pursuits of the same I have used machine generated content. In contrast, 98% or more of this website is human written content.
+
 ---
 
 ## 1. Overarching Theme: “The Curiosity Garage”

@@ -1,4 +1,5 @@
 ---
+title: Linkedin's "open to work" Badge, but as a Standalone App
 date: 2025-11-24
 tags:
   - "#idea"

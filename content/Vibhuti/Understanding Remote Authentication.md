@@ -4,7 +4,7 @@ tags:
   - "#engineering"
   - "#security"
 ---
-I am integrating user authentication in [[Building a better 'OpenToWork' feature|elevator pitch app]], and this is the first app where I am implementing an auth where I verify the exact identity of the user. In previous apps, mostly MVPs, I had implemented a simple anonymous user identification system to serve them services where they might return later.
+I am integrating user authentication in [[open to work website widget|elevator pitch app]], and this is the first app where I am implementing an auth where I verify the exact identity of the user. In previous apps, mostly MVPs, I had implemented a simple anonymous user identification system to serve them services where they might return later.
 
 At first thought, authentication can be considered analogous to gatekeeping. In the sense that, whoever visits - the gatekeeper records their identity. In most of the physical world we see it implemented for security, but in digital world the goal more tends towards delivering better services.
 

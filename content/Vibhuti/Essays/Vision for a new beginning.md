@@ -3,6 +3,9 @@ date: 2024-12-14
 tags:
   - "#philosophy"
 ---
+>[!warning] Includes AI Generated Elements
+>This content is an attempt to write Documentation for registering a company, and in the pursuits of making it I have used machine generated content. In contrast, 98% or more of this website is human written content.
+
 the company I want to build will have following goals,
 
 1. to bring efficiency in delivery of day to day social needs of citizens, like food, water, housing, healthcare, travel, justice, safety, housing services, and community services. The goal may not include direct engagement in delivery of the above products or services, but to facilitate the scale or adoption of these products/services through technology solutions. The delivering agents might include government agencies or public, private entities, to whom this company aims to serve as an enabler. The technology solutions may include consumer or internal software tools or hardware products.

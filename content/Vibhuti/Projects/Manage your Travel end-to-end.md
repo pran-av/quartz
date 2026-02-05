@@ -4,6 +4,9 @@ tags:
   - "#raahi"
   - "#product"
 ---
+>[!warning] Includes AI Generated Elements
+>This content is an attempt to write a PRD to develop a travel related product, and in the pursuits of the same I have used machine generated content. In contrast, 98% or more of this website is human written content.
+
 ### Chain of Thoughts
 
 This is a longterm idea. I tried putting up a robust PRD - a lot of effort is going onto perfect the PRD and as a result actual product development takes a hit.

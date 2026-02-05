@@ -3,6 +3,7 @@ date: 2025-11-15
 tags:
   - product
   - "#garden"
+title: Building my blogging platform called Garden
 ---
 >[!todo]
 >1. Revamp the front page, add an animation like a 2D game describing the site map

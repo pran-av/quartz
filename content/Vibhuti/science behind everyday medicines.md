@@ -1,4 +1,5 @@
 ---
+title: Understanding the science behind everyday medicines
 date: 2026-01-02
 tags:
   - "#chemistry"

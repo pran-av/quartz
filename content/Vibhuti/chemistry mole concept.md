@@ -2,6 +2,7 @@
 date: 2025-08-29
 tags:
   - chemistry
+title: Chemistry behind the concept of Mole
 ---
 In 1971, ***mole*** was accepted as an SI unit for '*measure of a substance*'.
 

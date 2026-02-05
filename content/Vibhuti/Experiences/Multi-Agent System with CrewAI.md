@@ -4,6 +4,9 @@ tags:
   - "#product"
   - "#saage"
 ---
+>[!warning] Under Construction
+>Content under development, please visit after a few days or subscribe to get notified
+
 My plan is to first create a prototype on Google Colab to understand the structure towards making multi-agent systems.
 
 I have previously worked on implementing a single agent for the Travel Planning product, we used langchain at that time as it was a pretty simple single command.
@@ -40,6 +43,3 @@ Some generic tips here are:
 1. The tasks should be as simple but descriptive as possible
 2. The agents should have a descriptive role and definition along with a backstory
 3. A crew can have multiple agents and tasks where the process takes place sequentially or hierarchically
-# Setup Notebook in Google Colab
-
-1. 

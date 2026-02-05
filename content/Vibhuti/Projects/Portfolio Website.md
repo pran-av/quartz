@@ -30,7 +30,7 @@ Other secondary features that came along v1 were:
 1. Download Resume Button in Header
 2. A Dark and Light Mode switch
 3. Decided to add different types of Experience and allow user to filter them: Work, Learning (education), and Adventure (outdoors, hobbies and others)
-4. Each experience card had an image, on click goes to the specific case study written on [[Garden]]
+4. Each experience card had an image, on click goes to the specific case study written on [[knowledge graph blog]]
 
 # Big Gap
 

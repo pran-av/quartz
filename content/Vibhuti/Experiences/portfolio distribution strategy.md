@@ -1,10 +1,14 @@
 ---
+title: Distribution Strategy for my Portfolio and Blog
 date: 2025-12-31
 tags:
   - garden
   - marketing
   - portfolio
 ---
+>[!warning] Under Construction
+>Content under development, please visit after a few days or subscribe to get notified
+
 Well folks! I feel I have enough content on my blog 'Garden' and my Portfolio that I can start thinking on ways to better distribute my writing.
 
 There are two main reasons why distribution is a priority right now:

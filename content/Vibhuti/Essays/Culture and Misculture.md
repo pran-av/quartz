@@ -15,6 +15,6 @@ Misculture can emerge in two ways:
 
 Recognizing this distinction is important if we want to build cultures that truly contribute to collective well-being — and consciously move away from patterns that no longer serve us.
 
->[!question] ### If you like how I think, you might want to Subscribe
+>[!question] If you like how I think, you might want to Subscribe
 >
 >##### [subscribe to my email list](http://eepurl.com/i8vmEk)

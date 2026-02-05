@@ -1,8 +1,13 @@
 ---
+title: Engineering Consent Management Flows like Privacy Policy and Terms of Service
 date: 2026-01-08
 tags:
   - engineering
+  - teardown
 ---
+>[!warning] Under Construction
+>Content under development, please visit after a few days or subscribe to get notified
+
 ### Enhancement: User Consent Management
 
 **Home Page Implementation:**

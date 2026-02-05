@@ -3,7 +3,6 @@ date: 2024-01-04
 tags:
   - "#teardown"
 ---
-
 #### Splitwise's monetisation attempt
 #product 
 

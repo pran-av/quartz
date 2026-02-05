@@ -3,7 +3,7 @@ date: 2025-12-01
 tags:
   - "#engineering"
 ---
-Yesterday, when I was building the first phase of [[Building a better 'OpenToWork' feature|Open To Work App]], I named the root directory as 'OpenToWork'. When I ran `npm create-next-app` received an error saying the directory name does not follow naming conventions. This has happened to me before as well, hence to avoid future complication I had to do some research finding why such convention exists.
+Yesterday, when I was building the first phase of [[open to work website widget|Open To Work App]], I named the root directory as 'OpenToWork'. When I ran `npm create-next-app` received an error saying the directory name does not follow naming conventions. This has happened to me before as well, hence to avoid future complication I had to do some research finding why such convention exists.
 
 The **Package Managers** like `npm` and `pnpm` are expecting from us lowercase directory names, like snake_case or kebab-case or justlowercase.
 

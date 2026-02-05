@@ -11,7 +11,7 @@ tags:
 
 ## Monday (Nov 24)
 
-- Completed the PRD [[Building a better 'OpenToWork' feature]] - should have completed a basic architecture sketch as well. I am still not sure on what should be the MVP - but I better not take something big and lose track again.
+- Completed the PRD [[open to work website widget]] - should have completed a basic architecture sketch as well. I am still not sure on what should be the MVP - but I better not take something big and lose track again.
 - Reached 1200 Followers on X. Have received 300 + X profile visits since yesterday, 23rd. They are not coming from my posts/replies - curious where they are coming from - might just be bots as well.
 - Profile visits to follow conversions are not that great on X, need to think on this but its gonna be a very open ended topic without knowing exactly where visits are coming from. Maybe I should add analytics to bandana girl website, because it has my X and primary CTA.
 

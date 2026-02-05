@@ -3,12 +3,13 @@ date: 2025-08-22
 tags:
   - "#observation"
 ---
+>[!warning] Under Construction
+>Content under development, please visit after a few days or subscribe to get notified
+
 If we look at the ages the human civilisation has gone through, 
 Early Stone Ages -> Neolithic -> Copper and Bronze Ages -> Iron Age -> Age of Philosophy -> Medieval Period -> Renaissance and Scientific Revolution
 
 The Medieval Period in Indian subcontinent started at about 600 CE and by late Medieval (1200 CE) the subcontinent was contesting with foreign philosophies through empires like the Delhi Sultanate.
-
-From my 
 
 Prehistoric and Early Civilizations
 	•	c. 9000 BCE - Early Neolithic Period: Evidence of early farming and settlement (e.g., Mehrgarh culture c. 7000–3300 BCE).

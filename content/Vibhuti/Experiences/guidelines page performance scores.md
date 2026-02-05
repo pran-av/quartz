@@ -1,10 +1,14 @@
 ---
+title: Guidelines to Optimize Page Performance Scores
 date: 2025-12-11
 tags:
   - "#engineering"
   - "#saage"
 ---
-I created a new Campaign in my [[Building a better 'OpenToWork' feature|elevator pitch app]] yesterday to pitch the founder of Pixxel Space for a PM role. When I shared the link - I observed the LCP rendering time was crazy high - 8 seconds!
+>[!warning] Under Construction
+>Content under development, please visit after a few days or subscribe to get notified
+
+I created a new Campaign in my [[open to work website widget|elevator pitch app]] yesterday to pitch the founder of Pixxel Space for a PM role. When I shared the link - I observed the LCP rendering time was crazy high - 8 seconds!
 
 Nobody is going to wait that long. I ran the Google PageSpeed Insights (I believe the score might be 70 or 80) and got following review to reduce unused JavaScript and defer loading scripts until they are required.
 

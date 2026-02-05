@@ -4,7 +4,7 @@ tags:
   - product
   - saage
 ---
-These are the learning I have derived while working on [[Building a better 'OpenToWork' feature|elevator pitch app]]. I implemented a RLS policy via cursor early on with the project, I had to frequently start migrations to make fixes within these policies or had to create helper functions for these policies to work. So, finally I am just diving a bit deeper to avoid any longterm issues.
+These are the learning I have derived while working on [[open to work website widget|elevator pitch app]]. I implemented a RLS policy via cursor early on with the project, I had to frequently start migrations to make fixes within these policies or had to create helper functions for these policies to work. So, finally I am just diving a bit deeper to avoid any longterm issues.
 
 I believe, its better to avoid any extensive use of AI to alter databases once a project goes to production. Most importantly because there comes a privacy issue, and second that wrong queries can really make things unrepairable or data can be lost forever.
 
@@ -56,7 +56,7 @@ These are simplified examples, I think we can manage most use cases within a sin
 
 ## A general framework to set RLS policies
 
-Here I'll try to use a framework to set some policies for [[Building a better 'OpenToWork' feature|elevator pitch app]].
+Here I'll try to use a framework to set some policies for [[open to work website widget|elevator pitch app]].
 
 **Step 1: Know the Schema**
 
