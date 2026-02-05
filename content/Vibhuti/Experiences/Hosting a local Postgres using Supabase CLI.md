@@ -141,6 +141,49 @@ Probably next time I'll make sure to make it reverse compatible. The best option
 
 If the app gets more real, I'll naturally look into setting up CI/CD via Github Actions or such services - both go or neither goes. And something which can also help me push to limited audiences first - stepwise rollout. Might as well add flags to the client so I can enable post surety.
 
+### Troubleshooting Failed Migrations
+
+Recently when I was migrating some database changes locally, a syntax error occurred mid migration leading to one migration file running while the rest being stranded.
+
+While stopping the container and restarting it would resolve the issue generally, my container would not restart and fail at the health checks.
+
+The reason it gave for failing was that on every restart it would try running the pending migrations but encounter a file name match and exit with error.
+
+To finally resolve this I had to,
+1. first list all the docker containers: `docker container ls`
+2. then remove the unwanted containers: `docker rm <container_name>`
+3. restart the supabase container again: `supabase start`
+
+There is no data loss when containers are removed, they are recreated by docker using already existing images and there is no relinking required either.
+
+As a bonus troubleshooting content, the reason behind my migrations failed earlier were,
+1. For function definitions, mandatory parameters are required to be declared in the beginning followed by all the optional parameters. If we mix the order of these, we get a syntax error.
+2. For nested dollar quoting, the nested quotes are required to be named like `$inner$`
+
+### Running Supabase Edge Functions Locally
+
+My requirements was for a Worker to process my Redis Streams into the Database. My Redis Streams were two separate queues of heartbeat events and click events.
+
+I decided to go ahead and make the worker as a Supabase function itself because I wanted to avoid any function authorization as much possible. My worker was required to access an unexposed schema, hence required higher privileges.
+
+On hosted database, we can directly go to the Supabase dashboard and add the worker scripts plus setup the env. However in the local environment, we have to,
+1. Run `supabase functions new <function-name>`
+2. This creates a folder named after the function name within the `supabase/functions` directory of the project. It would have an automatically generated `index.ts` file.
+3. The index file will already have a boilerplate that suggests the use of Deno to compile js or ts on local.
+4. The supabase `config.toml` will have to be updated with the edge function configuration which looks like
+```toml
+[functions.function-name]
+enabled = true
+verify_jwt = false
+import_map = "./functions/function-name/deno.json"
+entrypoint = "./functions/function-name/index.ts"
+```
+5. To setup environment variables, add a `.env` file to the `supabase/functions` directory. Do not include any SUPABASE variables as those will already be available, instead add all the third party variables required by the worker. In my case I was using Upstash for the Redis Stream.
+6. To manually invoke this worker, we need Postman or Terminal to run a POST request. Note that edge functions would require a service role key or an anon key to run. To get a service role key which is a JWT (not the secret key), use `supabase status -o env`.
+7. If the keys are correct and still the function is failing, try making sure `verify_jwt = false` in the config. There is a unsymmetrical and symmetrical JWT mismatch leading to token match failure error.
+8. I also had to troubleshoot around permissions because my worker was using functions which has `postgres` authority but still failed to access the unexposed schema. The only way to access these schema is to make the worker functions use `service_role`. Ensure these functions are not access to anon, public or even authenticated users.
+9. Another Security Headsup: If the worker or edge function is using security definer functions or views - make sure everytime to explicitly revoke permission to public, anon and authenticated.
+
 ---
 If you enjoyed reading this do Subscribe, if you are on desktop you'll find the button on left side menu. And if you are on mobile the best option is clicking this [subscribe to my weekly updates](http://eepurl.com/i8vmEk)
 
