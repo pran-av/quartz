@@ -3,8 +3,9 @@ date: 2025-10-06
 tags:
   - engineering
   - "#book"
+title: Understanding How To Program from First Principles
 ---
-## Programming vs Coding
+# Programming vs Coding
 
 If I go a year or two back - the difference between programming and coding did not matter to me - I do not even remember having a thought of differentiating them. However, since the past year as AI has ventured into my engineering more often, I have felt a need to explore and reason a set of new questions in more detail. One of those questions being, in what part of software development is AI performing better than me - and is there a part where I rule?
 
@@ -16,7 +17,42 @@ While **programming** within software development is where the engineering or so
 
 Usually when I build a software, I like to focus on the problems and the solutions - I would happily let AI implement the code. Though its equally important for me to understand the code written by AI, since without it I cannot be sure if my programming is implemented.
 
-## Javascript and C++
+# Functions as a Universal Concept
+
+If I have to understand `functions` while being completely code agnostic and programming focused. Here are the key properties that make a function:
+1. Identification
+2. Inputs
+3. Expected Outputs
+4. How and When the execution takes place
+
+Examples:
+```ts
+async function codeAgnostic (a:number, b:string, c:boolean): Promise<[number, string, boolean]> {
+	return [a, b, c]
+}
+```
+
+Here, the property 4 of "*how and when*" is defined via `async` - it promises a future array of numbers, strings, or booleans as an output for a, b, and c as input with known types.
+
+Functions can be declared in many ways, the above is called a *static declaration*.
+
+However the same function we can  be declared as,
+1. Function as a Value
+```ts
+const codeAgnostic = async (a:number, b:string, c:boolean): Promise<[number, string, boolean]> => {
+	return [a, b, c]
+}
+```
+
+2. Functions as a Method
+```ts
+const obj = async function codeAgnostic (a:number, b:string, c:boolean): Promise<[number, string, boolean]> {
+	return [a, b, c]
+}
+```
+
+The way we declare does not change the 4 fundamental properties we explored. 
+# Javascript and C++
 
 My introduction to coding was in high school where we learnt C++. Hence all of my code reading skills come from how well I learnt C++.
 

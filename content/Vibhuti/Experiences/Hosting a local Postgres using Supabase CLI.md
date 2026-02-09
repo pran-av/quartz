@@ -179,10 +179,11 @@ import_map = "./functions/function-name/deno.json"
 entrypoint = "./functions/function-name/index.ts"
 ```
 5. To setup environment variables, add a `.env` file to the `supabase/functions` directory. Do not include any SUPABASE variables as those will already be available, instead add all the third party variables required by the worker. In my case I was using Upstash for the Redis Stream.
-6. To manually invoke this worker, we need Postman or Terminal to run a POST request. Note that edge functions would require a service role key or an anon key to run. To get a service role key which is a JWT (not the secret key), use `supabase status -o env`.
-7. If the keys are correct and still the function is failing, try making sure `verify_jwt = false` in the config. There is a unsymmetrical and symmetrical JWT mismatch leading to token match failure error.
-8. I also had to troubleshoot around permissions because my worker was using functions which has `postgres` authority but still failed to access the unexposed schema. The only way to access these schema is to make the worker functions use `service_role`. Ensure these functions are not access to anon, public or even authenticated users.
-9. Another Security Headsup: If the worker or edge function is using security definer functions or views - make sure everytime to explicitly revoke permission to public, anon and authenticated.
+6. Run `supabase functions serve` in the CLI to before invoking the edge functions.
+7. To manually invoke this worker, we need Postman or Terminal to run a POST request. Note that edge functions would require a service role key or an anon key to run. To get a service role key which is a JWT (not the secret key), use `supabase status -o env`.
+8. If the keys are correct and still the function is failing, try making sure `verify_jwt = false` in the config. There is a unsymmetrical and symmetrical JWT mismatch leading to token match failure error.
+9. I also had to troubleshoot around permissions because my worker was using functions which has `postgres` authority but still failed to access the unexposed schema. The only way to access these schema is to make the worker functions use `service_role`. Ensure these functions are not access to anon, public or even authenticated users.
+10. Another Security Headsup: If the worker or edge function is using security definer functions or views - make sure everytime to explicitly revoke permission to public, anon and authenticated.
 
 ---
 If you enjoyed reading this do Subscribe, if you are on desktop you'll find the button on left side menu. And if you are on mobile the best option is clicking this [subscribe to my weekly updates](http://eepurl.com/i8vmEk)
