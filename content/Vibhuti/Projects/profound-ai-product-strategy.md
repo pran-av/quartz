@@ -46,7 +46,7 @@ I might have started interacting early on with the app if text was also availabl
 
 Same architecture runs multiple input formats, so there is no special dev effort required in allowing chat. And if Chat is gonna take the user to the Aha moment early over rescheduling for Voice - then it's good to have Text Input as well.
 
-## The Target Market
+# The Target Market
 
 In the message that Anuj shared on X - he mentioned on building for top 1% of professionals across the world. A few questions here: What do we mean by top professionals? Why top 1% specifically?
 
