@@ -46,3 +46,9 @@ The user's are the ones currently looking for a job. Now I need to imagine mysel
 3. I am investing a lot of timely daily applying
 
 
+---
+## Benefits of Pitch Like This
+
+Job Seekers
+- **Convert more interviews** by pitching or engaging with key individuals in the company through simple pitches.
+- 
