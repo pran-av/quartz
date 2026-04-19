@@ -188,3 +188,38 @@ entrypoint = "./functions/function-name/index.ts"
 ---
 If you enjoyed reading this do Subscribe, if you are on desktop you'll find the button on left side menu. And if you are on mobile the best option is clicking this [subscribe to my weekly updates](http://eepurl.com/i8vmEk)
 
+---
+
+### Update Supabase CLI
+
+Simply run `brew supabase upgrade`. The next time you run `supabase start` - any new image files will be downloaded.
+
+### Relink Supabase to sync local and remote project
+
+I get a following message in terminal
+```
+WARNING: You are running different service versions locally than your linked project:
+
+supabase/gotrue:v2.186.0 => v2.188.1
+
+supabase/storage-api:v1.48.28 => v1.48.20
+```
+
+Run `supabase link` -> the terminal shares a dropdown to select the project, select the accurate project by the project_id and then start supabase again in CLI.
+
+### Creating Local Branches in Supabase CLI
+
+My problem was that I already had my local supabase running an experimental migration. And now since I was building a new feature - I wanted to avoid that migration being deployed to production. Hence branching my local supabase was a good solution.
+
+However, branching is only available for Pro plan which costs 25 dollars monthly. Too much for a one time requirement.
+
+What I instead did was try a bunch of things,
+1. `supabase branches create <branch-name>` -- I attempted to create a branch via CLI - which told me I am not subscribed to Pro (however if I look at my local repo there's a `.branch` file now)
+2. `supabase branches list` -- I wrote a command to see all the branches - and I could see a default main branch but without a git branch. While my local repo already had git initialised and new branch created, I was doubtful that supabase would detect this.
+3. `supabase db reset` -- without expecting much I ran db reset, and yes it somehow created the new db based on my current git branch
+4. So I did not create two separate branches but managed to have the Supabase local tuned with latest branch - so I am not blocked. My git branches has record of those trial migrations so I could run a migration up (post switching my local repo to that branch) anytime I want them back.
+
+|ID|NAME|DEFAULT|GIT BRANCH|WITH DATA|STATUS|CREATED AT (UTC)|UPDATED AT (UTC)|
+|---|---|---|---|---|---|---|---|
+|project_id|main|true||false|FUNCTIONS_DEPLOYED|2026-04-14 15:56:01|2026-04-14 15:56:01|
+
