@@ -192,7 +192,7 @@ If you enjoyed reading this do Subscribe, if you are on desktop you'll find the 
 
 ### Update Supabase CLI
 
-Simply run `brew supabase upgrade`. The next time you run `supabase start` - any new image files will be downloaded.
+Simply run `brew upgrade supabase`. The next time you run `supabase start` - any new image files will be downloaded.
 
 ### Relink Supabase to sync local and remote project
 
