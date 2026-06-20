@@ -85,6 +85,7 @@ $$ I_{\text{sp}} = \frac{F}{\dot{w}} = \frac{F}{\dot{m} g_0} = \frac{\dot{m} v_e
 | $\dot{w}$       | Propellant weight flow rate                     | $\text{N/s}$   |
 | $\dot{m}$       | Propellant mass flow rate                       | $\text{kg/s}$  |
 | $g_0$           | Standard gravitational acceleration ($9.80665$) | $\text{m/s}^2$ |
+
 Based on this equation what we can confirm is that **Specific Impulse directly depends on Effective Exhaust Velocity**.
 
 Higher $v_e$ means higher specific impulse of our propulsion system.
