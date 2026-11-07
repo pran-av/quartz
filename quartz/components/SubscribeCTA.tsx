@@ -48,6 +48,11 @@ const style = `
   line-height: 1.4;
 }
 
+:root[saved-theme="light"] .subscribe-cta p {
+  /* --gray is too faint on the light background */
+  color: var(--darkgray);
+}
+
 .subscribe-link {
   color: var(--secondary);
   text-decoration: none;
