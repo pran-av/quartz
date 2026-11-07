@@ -38,6 +38,7 @@ The levels are set to make business context clear and to solve bottlenecks in a 
 | CM1 - Product and Infra Profitability | Net Revenue - Hosting, Infra, and Token Costs, etc    |
 | CM2 - Operational Profitability       | CM1 - Human Capital, Subscription, Gateway Costs, etc |
 | CM3 - Sales Profitability             | CM2 - Sales Capitals and Commissions, Discounts, etc  |
+
 For Infinity Learn an EdTech software business which makes it a SaaS - the salaries for teachers, engineers, business and operations team might have been considered in CM2 level. While the Sales salaries might have been subtracted in CM3 levels.
 
 For a business like Amazon, Swiggy, BluSmart - the Net Revenue will be the commission. CM1 will include the physical infrastructure like packaging facilities, dark stores, or vehicle costs.
