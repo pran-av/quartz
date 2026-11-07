@@ -4,7 +4,10 @@
   min-width: fit-content;
   max-width: 14rem;
   @media all and ($mobile) {
-    flex-grow: 0.3;
+    flex-grow: 0;
+    max-width: none;
+    min-width: 0;
+
   }
 
   & > .search-button {
@@ -22,9 +25,20 @@
     white-space: nowrap;
     width: 100%;
 
+    @media all and ($mobile) {
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      justify-content: center;
+    }
+
     & > p {
       display: inline;
       color: var(--gray);
+
+      @media all and ($mobile) {
+        display: none;
+      }
     }
 
     & svg {
@@ -32,6 +46,10 @@
       width: 18px;
       min-width: 18px;
       margin: 0 0.5rem;
+
+      @media all and ($mobile) {
+        margin: 0;
+      }
 
       .search-path {
         stroke: var(--darkgray);
@@ -45,10 +63,9 @@
     position: fixed;
     contain: layout;
     z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    width: auto;
+    height: auto;
     overflow-y: auto;
     display: none;
     backdrop-filter: blur(4px);

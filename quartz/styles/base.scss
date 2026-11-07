@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
-  width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -204,10 +204,12 @@ a {
     }
 
     @media all and not ($desktop) {
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
     @media all and ($mobile) {
       margin: 0 auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
 
     & .sidebar {
@@ -224,6 +226,17 @@ a {
       z-index: 1;
       grid-area: grid-sidebar-left;
       flex-direction: column;
+
+      @media all and not ($mobile) {
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        > :not(.explorer) {
+          flex-shrink: 0;
+        }
+      }
+
       @media all and ($mobile) {
         gap: 0;
         align-items: center;

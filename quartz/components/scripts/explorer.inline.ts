@@ -150,6 +150,35 @@ function createFolderNode(
   return li
 }
 
+function noteTime(value: string | Date | undefined): number {
+  if (!value) return 0
+  const time = new Date(value).getTime()
+  return Number.isNaN(time) ? 0 : time
+}
+
+function latestTime(node: FileTrieNode): number {
+  let latest = noteTime(node.data?.date)
+  if (!node.isFolder) return latest
+  for (const child of node.children) {
+    latest = Math.max(latest, latestTime(child))
+  }
+  return latest
+}
+
+// Folders stay above notes. Within a folder, newest notes come first.
+// FileTrieNode.sort runs this on every folder, so siblings are ordered independently.
+function compareExplorerNodes(a: FileTrieNode, b: FileTrieNode): number {
+  if (a.isFolder !== b.isFolder) {
+    return a.isFolder ? -1 : 1
+  }
+  const byDate = latestTime(b) - latestTime(a)
+  if (byDate !== 0) return byDate
+  return a.displayName.localeCompare(b.displayName, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
+
 async function setupExplorer(currentSlug: FullSlug) {
   const allExplorers = document.querySelectorAll("div.explorer") as NodeListOf<HTMLElement>
 
@@ -186,7 +215,7 @@ async function setupExplorer(currentSlug: FullSlug) {
           if (opts.mapFn) trie.map(opts.mapFn)
           break
         case "sort":
-          if (opts.sortFn) trie.sort(opts.sortFn)
+          trie.sort(compareExplorerNodes)
           break
       }
     }
@@ -255,6 +284,20 @@ async function setupExplorer(currentSlug: FullSlug) {
       icon.addEventListener("click", toggleFolder)
       window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
     }
+
+    const closeExplorer = () => {
+      explorer.classList.add("collapsed")
+      explorer.setAttribute("aria-expanded", "false")
+      document.documentElement.classList.remove("mobile-no-scroll")
+    }
+    const backdrop = explorer.querySelector(".explorer-backdrop")
+    const closeButton = explorer.querySelector(".explorer-close")
+    backdrop?.addEventListener("click", closeExplorer)
+    closeButton?.addEventListener("click", closeExplorer)
+    window.addCleanup(() => {
+      backdrop?.removeEventListener("click", closeExplorer)
+      closeButton?.removeEventListener("click", closeExplorer)
+    })
   }
 }
 

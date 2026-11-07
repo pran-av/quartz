@@ -1,3 +1,25 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+@media all and (max-width: 800px) {
+  body[data-slug="index"] .center > .page-header .popover-hint,
+  body[data-slug="index"] .center > article,
+  body[data-slug="index"] .center > hr {
+    display: none;
+  }
+
+  .sidebar.left .flex-component > div:has(.search) {
+    flex-grow: 0 !important;
+  }
+
+  .page-title {
+    font-size: 1.15rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body[data-slug="index"] .garden-feed > h3 {
+    margin-top: 0.25rem;
+  }
+}

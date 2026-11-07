@@ -41,10 +41,9 @@
   & > .global-graph-outer {
     position: fixed;
     z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100%;
+    inset: 0;
+    width: auto;
+    height: auto;
     backdrop-filter: blur(4px);
     display: none;
     overflow: hidden;
