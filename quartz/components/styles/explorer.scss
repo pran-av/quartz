@@ -130,11 +130,12 @@ button.desktop-explorer {
     overscroll-behavior: contain;
   }
 
+  // No overscroll-behavior here: nested folder lists must let wheel/touch
+  // scrolling chain up to the real scroller (sidebar on desktop, drawer on mobile).
   & ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    overscroll-behavior: contain;
 
     & li > a {
       color: var(--dark);
@@ -164,7 +165,9 @@ button.desktop-explorer {
 
   .folder-outer > ul {
     min-height: 0;
-    overflow: hidden;
+    // `clip` (not `hidden`) so nested lists don't become scroll containers
+    // that swallow wheel/touch scrolling.
+    overflow: clip;
     margin-left: 6px;
     padding-left: 0.8rem;
     border-left: 1px solid var(--lightgray);

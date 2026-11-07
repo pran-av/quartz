@@ -1,23 +1,37 @@
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { classNames } from "../util/lang"
 
-function SubscribeCTA({}: QuartzComponentProps) {
-  return (
-    <div class="subscribe-cta">
+interface Options {
+  /**
+   * "sidebar": left sidebar on tablet + desktop (hidden on mobile via DesktopOnly).
+   * "inline": in the page body, shown only on mobile, where there is no sidebar.
+   */
+  placement: "sidebar" | "inline"
+}
+
+const SubscribeCTA = (opts?: Partial<Options>) => {
+  const placement = opts?.placement ?? "sidebar"
+  const Component = ({ displayClass }: QuartzComponentProps) => (
+    <div class={classNames(displayClass, "subscribe-cta", `subscribe-cta--${placement}`)}>
       <p>
-        <a 
-          href="https://pranavmandhare.us12.list-manage.com/subscribe?u=e38e9b467797bfcf55178c605&id=524512c21b" 
-          target="_blank" 
+        <a
+          href="https://pranavmandhare.us12.list-manage.com/subscribe?u=e38e9b467797bfcf55178c605&id=524512c21b"
+          target="_blank"
           rel="noopener noreferrer"
           class="subscribe-link"
         >
           Subscribe
-        </a> to get once-a-week summary of essays, topics, experiences, and projects
+        </a>{" "}
+        to get once-a-week summary of essays, topics, experiences, and projects
       </p>
     </div>
   )
+
+  Component.css = style
+  return Component
 }
 
-SubscribeCTA.css = `
+const style = `
 .subscribe-cta {
   margin-top: 1em;
   margin-bottom: 1.5em;
@@ -47,12 +61,20 @@ SubscribeCTA.css = `
   border-bottom-color: var(--tertiary);
 }
 
-/* Ensure hidden on mobile and tablet - override any conflicting styles */
-@media all and (max-width: 1199px) {
-  .subscribe-cta {
-    display: none !important;
+/* Inline variant replaces the sidebar one on mobile only */
+.subscribe-cta--inline {
+  margin: 2rem 0 1rem;
+}
+
+body[data-slug="index"] .subscribe-cta--inline {
+  margin: 0 0 1.5rem;
+}
+
+@media all and (min-width: 801px) {
+  .subscribe-cta--inline {
+    display: none;
   }
 }
 `
 
-export default (() => SubscribeCTA) satisfies QuartzComponentConstructor
+export default SubscribeCTA satisfies QuartzComponentConstructor<Partial<Options>>

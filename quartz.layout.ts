@@ -8,6 +8,9 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    // Mobile has no sidebar: show Subscribe above the feed on the homepage,
+    // and at the end of the content on every other page.
+    SubscribeCTA({ placement: "inline" }),
     Component.ConditionalRender({
       component: GardenFeed(),
       condition: (page) => page.fileData.slug === "index",
